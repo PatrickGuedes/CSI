@@ -42,11 +42,11 @@ public class LoginGUI extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 34, 77));
         jPanel1.setPreferredSize(new java.awt.Dimension(650, 500));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 75));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 75)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(130, 149, 177));
         jLabel1.setText("CSI ");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(120, 139, 168));
         jLabel2.setText("Nome do Jogador:");
 
@@ -55,7 +55,7 @@ public class LoginGUI extends javax.swing.JFrame {
         jLabel3.setText("JAVA 1ª TEMPORADA");
 
         inputNome.setBackground(new java.awt.Color(130, 149, 177));
-        inputNome.setFont(new java.awt.Font("Lucida Grande", 0, 18));
+        inputNome.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         inputNome.setForeground(new java.awt.Color(0, 34, 77));
         inputNome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(236, 241, 249)));
         inputNome.addActionListener(new java.awt.event.ActionListener() {
@@ -64,7 +64,7 @@ public class LoginGUI extends javax.swing.JFrame {
             }
         });
 
-        buttonJogar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Bt_jogar.gif"))); // NOI18N
+        buttonJogar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Bt_jogar.gif"))); // NOI18N
         buttonJogar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(182, 25, 28), 1, true));
         buttonJogar.setMaximumSize(new java.awt.Dimension(75, 30));
         buttonJogar.setMinimumSize(new java.awt.Dimension(75, 30));

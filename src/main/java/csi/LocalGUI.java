@@ -67,29 +67,29 @@ public class LocalGUI extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 34, 77));
         jPanel1.setPreferredSize(new java.awt.Dimension(650, 500));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 75));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 75)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(130, 149, 177));
         jLabel1.setText("CSI ");
 
-        labelLocal.setFont(new java.awt.Font("Tahoma", 0, 24));
+        labelLocal.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         labelLocal.setForeground(new java.awt.Color(120, 139, 168));
         labelLocal.setText("Local do Crime: Procurar Pistas");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(130, 149, 177));
         jLabel3.setText("JAVA 1ª TEMPORADA");
 
-        labelXP.setFont(new java.awt.Font("Tahoma", 0, 12));
+        labelXP.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         labelXP.setForeground(new java.awt.Color(255, 51, 0));
         labelXP.setText("0");
-        labelXP.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "XP", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14), new java.awt.Color(130, 149, 177))); // NOI18N
+        labelXP.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "XP", 0, 0, new java.awt.Font("Tahoma", 0, 14), new java.awt.Color(130, 149, 177))); // NOI18N
 
-        labelEnergia.setFont(new java.awt.Font("Tahoma", 0, 14));
+        labelEnergia.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         labelEnergia.setForeground(new java.awt.Color(255, 51, 0));
         labelEnergia.setText("0");
-        labelEnergia.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ENERGIA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12), new java.awt.Color(130, 149, 177))); // NOI18N
+        labelEnergia.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ENERGIA", 0, 0, new java.awt.Font("Tahoma", 0, 12), new java.awt.Color(130, 149, 177))); // NOI18N
 
-        buttonPista2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Pista.gif"))); // NOI18N
+        buttonPista2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Pista.gif"))); // NOI18N
         buttonPista2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(182, 25, 28)));
         buttonPista2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Pista_hover.gif"))); // NOI18N
         buttonPista2.addActionListener(new java.awt.event.ActionListener() {
@@ -98,7 +98,7 @@ public class LocalGUI extends javax.swing.JFrame {
             }
         });
 
-        buttonPista1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Pista.gif"))); // NOI18N
+        buttonPista1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Pista.gif"))); // NOI18N
         buttonPista1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(182, 25, 28)));
         buttonPista1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Pista_hover.gif"))); // NOI18N
         buttonPista1.addActionListener(new java.awt.event.ActionListener() {
@@ -107,7 +107,7 @@ public class LocalGUI extends javax.swing.JFrame {
             }
         });
 
-        buttonPista4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Pista.gif"))); // NOI18N
+        buttonPista4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Pista.gif"))); // NOI18N
         buttonPista4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(182, 25, 28)));
         buttonPista4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Pista_hover.gif"))); // NOI18N
         buttonPista4.addActionListener(new java.awt.event.ActionListener() {
@@ -123,7 +123,7 @@ public class LocalGUI extends javax.swing.JFrame {
             }
         });
 
-        buttonPista3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Pista.gif"))); // NOI18N
+        buttonPista3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Pista.gif"))); // NOI18N
         buttonPista3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(182, 25, 28)));
         buttonPista3.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Pista_hover.gif"))); // NOI18N
         buttonPista3.addActionListener(new java.awt.event.ActionListener() {
@@ -162,7 +162,7 @@ public class LocalGUI extends javax.swing.JFrame {
                             .add(labelJogador, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 204, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                            .add(org.jdesktop.layout.GroupLayout.LEADING, labelLocal, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 559, Short.MAX_VALUE)
+                            .add(org.jdesktop.layout.GroupLayout.LEADING, labelLocal, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .add(jPanel1Layout.createSequentialGroup()
                                 .add(buttonLab)
                                 .add(18, 18, 18)
