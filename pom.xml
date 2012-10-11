@@ -239,6 +239,11 @@
 			<artifactId>jsp-api</artifactId>
 			<version>2.0</version>
 		</dependency>
+	 <dependency>
+	  <groupId>org.swinglabs</groupId>
+	  <artifactId>swing-layout</artifactId>
+	  <version>1.0.3</version>
+	 </dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -323,5 +328,12 @@
 			</extension>
 		</extensions>
 	</build>
-
+ <repositories>
+  <repository>
+   <url>http://repo1.maven.org/maven2/</url>
+   <id>swing-layout</id>
+   <layout>default</layout>
+   <name>Repository for library Library[swing-layout]</name>
+  </repository>
+ </repositories>
 </project>
