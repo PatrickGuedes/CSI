@@ -3,19 +3,29 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>mackenzie</groupId>
-	<artifactId>csi</artifactId>
+	<artifactId>blank-project</artifactId>
 	<packaging>war</packaging>
 	<version>1.0</version>
-	<name>CSI Mackenzie</name>
-	<url>http://www.csi.com</url>
-	<description>Trabalho de desenvolvimento Mackenzie, jogo CSI.</description>
+	<name>Name</name>
+	<url>http://www.mackenzie.br</url>
+	<description>This is a blank project used in software development courses</description>
 	<properties>
 		<java.version>1.6</java.version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
 		<org.springframework.version>3.1.2.RELEASE</org.springframework.version>
 	</properties>
 	<dependencies>
 		<!-- Hibernate annotation -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.5</version>
+		</dependency>
+		<dependency>
+			<groupId>velocity</groupId>
+			<artifactId>velocity</artifactId>
+			<version>1.3.1</version>
+		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
@@ -37,6 +47,7 @@
 			<artifactId>slf4j-jcl</artifactId>
 			<version>1.6.1</version>
 		</dependency>
+		
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -55,10 +66,45 @@
 			<version>4.7</version>
 			<scope>test</scope>
 		</dependency>
+		<!-- Struts 2 -->
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-core</artifactId>
+			<version>2.3.1.1</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>tools</artifactId>
+					<groupId>com.sun</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- -->
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-convention-plugin</artifactId>
+			<version>2.3.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-spring-plugin</artifactId>
+			<version>2.3.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-json-plugin</artifactId>
+			<version>2.3.1.1</version>
+		</dependency>
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.16</version>
+		</dependency>
+		<!-- Struts -->
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-junit-plugin</artifactId>
+			<version>2.3.1.1</version>
+			<scope>test</scope>
 		</dependency>
 		<!-- Servlet & Jsp -->
 		<dependency>
@@ -239,11 +285,6 @@
 			<artifactId>jsp-api</artifactId>
 			<version>2.0</version>
 		</dependency>
-	 <dependency>
-	  <groupId>org.swinglabs</groupId>
-	  <artifactId>swing-layout</artifactId>
-	  <version>1.0.3</version>
-	 </dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -269,6 +310,8 @@
 				<version>7.5.4.v20111024</version>
 				<configuration>
 					<scanIntervalSeconds>10</scanIntervalSeconds>
+					<!-- http://dev.eclipse.org/mhonarc/lists/jetty-users/msg02016.html -->
+					<jettyEnvXml>${basedir}/src/main/jetty/jetty-env.xml</jettyEnvXml>
 					<connectors>
 						<connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
 							<port>30016</port>
@@ -328,12 +371,5 @@
 			</extension>
 		</extensions>
 	</build>
- <repositories>
-  <repository>
-   <url>http://repo1.maven.org/maven2/</url>
-   <id>swing-layout</id>
-   <layout>default</layout>
-   <name>Repository for library Library[swing-layout]</name>
-  </repository>
- </repositories>
+
 </project>
