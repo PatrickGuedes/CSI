@@ -11,25 +11,25 @@ import javax.swing.JOptionPane;
  */
 public class Controller {
     // Instancia Singleton
-    private static final Controller controller = new Controller();
+    // private static final Controller controller = new Controller();
     // Jogador atual
-    private Jogador jogador = null;
-    // Caso atual que esta sendo resolvido
-    private Caso caso = null;
-    // Local atual que esta sendo visitado
-    private Local local = null;
-    // Lista de pistas para processas
-    private ArrayList<Pista> pistasProcessar = new ArrayList<Pista>();
-    // Interface para entrar no jogo
-    private LoginGUI loginGUI = new LoginGUI();
-    // Interface para exibir os casos
-    private CasosGUI casosGUI = new CasosGUI();
-    // Interface para exibir os locais que pode visitar
-    private LocaisGUI locaisGUI = new LocaisGUI();
+    // private Jogador jogador = null;
+    //Caso atual que esta sendo resolvido
+    // private Caso caso = null;
+    //Local atual que esta sendo visitado
+    // private Local local = null;
+    //Lista de pistas para processas
+    // private ArrayList<Pista> pistasProcessar = new ArrayList<Pista>();
+    //Interface para entrar no jogo
+    //private LoginGUI loginGUI = new LoginGUI();
+    //Interface para exibir os casos
+    // private CasosGUI casosGUI = new CasosGUI();
+    //Interface para exibir os locais que pode visitar
+    // private LocaisGUI locaisGUI = new LocaisGUI();
     // Interface para exibir o local e as pistas
-    private LocalGUI localGUI = new LocalGUI();
+    // private LocalGUI localGUI = new LocalGUI();
     // Interface do laboratorio para processas as pistas
-    private LaboratorioGUI labGUI = new LaboratorioGUI();
+    // private LaboratorioGUI labGUI = new LaboratorioGUI();
 
     /**
      * Construtor privado para aplicar o padrão singleton
@@ -42,20 +42,20 @@ public class Controller {
      * 
      * @return  Instancia singleton
      */
-    public static Controller getController() {
-        return controller;
+    public void getController() {
+        // return controller;
     }
 
     /**
      * Inicia o jogo executando a interface para entrar.
      */
     public void iniciaJogo() {
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        // java.awt.EventQueue.invokeLater(new Runnable() {
 
-            public void run() {
-                loginGUI.setVisible(true);
-            }
-        });
+            // public void run() {
+                // loginGUI.setVisible(true);
+            // }
+        // });
     }
 
     /**
@@ -65,11 +65,11 @@ public class Controller {
      */
     public void novoJogador(String nome) {
         // TODO: o que fazer quando ja houver um jogador ativo?
-        jogador = new Jogador();
-        jogador.setNome(nome);
-        System.out.println("Criado novo jogador: " + nome);
+        // jogador = new Jogador();
+        // jogador.setNome(nome);
+        // System.out.println("Criado novo jogador: " + nome);
 
-        mostraCasos(loginGUI);
+        // mostraCasos(loginGUI);
     }
 
     /**
@@ -79,49 +79,49 @@ public class Controller {
      * @return 
      */
     public void mostraCasos(javax.swing.JFrame janela) {
-        ArrayList<ArrayList<String>> casos;
-        ArrayList<Integer> casosConcluidos;
-        ArrayList<String> casosAbertos = new ArrayList<String>();
-        ArrayList<String> caso;
-        Iterator i;
+        // ArrayList<ArrayList<String>> casos;
+        // ArrayList<Integer> casosConcluidos;
+        // ArrayList<String> casosAbertos = new ArrayList<String>();
+        // ArrayList<String> caso;
+        // Iterator i;
         
-        if (janela != null) janela.setVisible(false);
+        // if (janela != null) janela.setVisible(false);
 
-        // atualiza info na tela
-        casosGUI.setEnergia(Integer.toString(jogador.getEnergia()));
-        casosGUI.setJogador("Jogador: " + jogador.getNome());
-        casosGUI.setXP(Integer.toString(jogador.getExperiencia()));
+        //atualiza info na tela
+        // casosGUI.setEnergia(Integer.toString(jogador.getEnergia()));
+        // casosGUI.setJogador("Jogador: " + jogador.getNome());
+        // casosGUI.setXP(Integer.toString(jogador.getExperiencia()));
 
-        // exibe a tela
-        casosGUI.setVisible(true);
+        //exibe a tela
+        // casosGUI.setVisible(true);
 
-        if (jogador == null) {
-            System.out.println("Nao tem jogador para exibir os casos.");
-//            return; essa condicao nao deve acontecer
-        }
+        // if (jogador == null) {
+            // System.out.println("Nao tem jogador para exibir os casos.");
+           //return; essa condicao nao deve acontecer
+        // }
 
-        casos = Caso.getTodosCasos();
-        casosConcluidos = jogador.getCasosConcluidos();
+        // casos = Caso.getTodosCasos();
+        // casosConcluidos = jogador.getCasosConcluidos();
 
-        i = casos.iterator();
+        // i = casos.iterator();
 
-        // TODO: quando tiver a interface grafica, limpar e atualizar com os dados
-        // abaixo dos casos
-        while (i.hasNext()) {
-            caso = (ArrayList<String>) i.next();
+        //TODO: quando tiver a interface grafica, limpar e atualizar com os dados
+        //abaixo dos casos
+        // while (i.hasNext()) {
+            // caso = (ArrayList<String>) i.next();
 
-            // se eh um caso concluido pelo usuario
-            if (casosConcluidos.contains(Integer.parseInt(caso.get(0)))) {
-                System.out.println("Caso concluido ja: " + caso);
+            //se eh um caso concluido pelo usuario
+            // if (casosConcluidos.contains(Integer.parseInt(caso.get(0)))) {
+                // System.out.println("Caso concluido ja: " + caso);
 
-                // novo caso
-            } else {
-                System.out.println("Caso novo: " + caso);
-                casosAbertos.add("#" + caso.get(0) + " - " + caso.get(1));
-            }
-        }
+                //novo caso
+            // } else {
+                // System.out.println("Caso novo: " + caso);
+                // casosAbertos.add("#" + caso.get(0) + " - " + caso.get(1));
+            // }
+        // }
         
-        casosGUI.setCasos(casosAbertos);
+        // casosGUI.setCasos(casosAbertos);
     }
 
     /**
@@ -133,30 +133,30 @@ public class Controller {
      */
     public boolean carregaCaso(int id) {
 
-        if (jogador == null) {
-            System.out.println("Nao tem jogador para carregar um caso.");
-            return false;
-        }
+        // if (jogador == null) {
+            // System.out.println("Nao tem jogador para carregar um caso.");
+            // return false;
+        // }
 
-        if (caso != null) {
-            System.out.println("Ja existe um caso ativo.");
-            return false;
-        }
+        // if (caso != null) {
+            // System.out.println("Ja existe um caso ativo.");
+            // return false;
+        // }
 
-        caso = new Caso();
+        // caso = new Caso();
 
-        if (caso.carrega(id) == false) {
-            caso = null;
-            JOptionPane.showMessageDialog(null, "Caso nao carregado");
-            System.out.println("Caso NAO carregado: " + id);
-            return false;
-        }
+        // if (caso.carrega(id) == false) {
+            // caso = null;
+            // JOptionPane.showMessageDialog(null, "Caso nao carregado");
+            // System.out.println("Caso NAO carregado: " + id);
+            // return false;
+        // }
 
-        System.out.println("Caso carregado: " + id + " - " + caso.getNome());
+        // System.out.println("Caso carregado: " + id + " - " + caso.getNome());
 
-        mostraLocais(casosGUI);
+        // mostraLocais(casosGUI);
 
-        return true;
+         return true;
     }
 
     /**
@@ -166,28 +166,28 @@ public class Controller {
      */
     public void mostraLocais(javax.swing.JFrame janela) {
 
-        ArrayList<Local> locais = caso.getLocais();
-        Iterator i = locais.iterator();
-        Local local;
+        // ArrayList<Local> locais = caso.getLocais();
+        // Iterator i = locais.iterator();
+        // Local local;
 
-        while (i.hasNext()) {
-            local = (Local) i.next();
+        // while (i.hasNext()) {
+            // local = (Local) i.next();
 
-            System.out.println("Exibindo local: " + local.getNome());
-        }
+            // System.out.println("Exibindo local: " + local.getNome());
+        // }
         
-        locaisGUI.setLocais(locais);
+        // locaisGUI.setLocais(locais);
 
-        if (janela != null) janela.setVisible(false);
+        // if (janela != null) janela.setVisible(false);
 
-        // atualiza info na tela
-        locaisGUI.setEnergia(Integer.toString(jogador.getEnergia()));
-        locaisGUI.setJogador("Jogador: " + jogador.getNome());
-        locaisGUI.setXP(Integer.toString(jogador.getExperiencia()));
-        locaisGUI.setCaso(caso.getNome());
-        locaisGUI.setDescricao(caso.getDescricao());
+        //atualiza info na tela
+        // locaisGUI.setEnergia(Integer.toString(jogador.getEnergia()));
+        // locaisGUI.setJogador("Jogador: " + jogador.getNome());
+        // locaisGUI.setXP(Integer.toString(jogador.getExperiencia()));
+        // locaisGUI.setCaso(caso.getNome());
+        // locaisGUI.setDescricao(caso.getDescricao());
 
-        locaisGUI.setVisible(true);
+        // locaisGUI.setVisible(true);
     }
 
     /**
@@ -197,54 +197,54 @@ public class Controller {
      */
     public void visitaLocal(int id) {
 
-        local = caso.getLocal(id);
+        // local = caso.getLocal(id);
 
-        if (local == null) {
-            System.out.println("Local NAO carregado: " + id);
-            return;
-        }
+        // if (local == null) {
+            // System.out.println("Local NAO carregado: " + id);
+            // return;
+        // }
 
-        // checa se o usuario tem energia suficiente
-        if (jogador.getEnergia() < local.getEnergiaNecessaria()) {
-            JOptionPane.showMessageDialog(locaisGUI, "Voce nao tem energia suficiente");
-            System.out.println("Falta energia para conseguir ir ao local, minimo: " + local.getEnergiaNecessaria());
-            local = null;
-            return;
-        }
+        //checa se o usuario tem energia suficiente
+        // if (jogador.getEnergia() < local.getEnergiaNecessaria()) {
+            // JOptionPane.showMessageDialog(locaisGUI, "Voce nao tem energia suficiente");
+            // System.out.println("Falta energia para conseguir ir ao local, minimo: " + local.getEnergiaNecessaria());
+            // local = null;
+            // return;
+        // }
 
-        // remove energia
-        jogador.rmEnergia(local.getEnergiaNecessaria());
+        //remove energia
+        // jogador.rmEnergia(local.getEnergiaNecessaria());
 
-        System.out.println("Local carregado: " + id + " - " + local.getNome());
+        // System.out.println("Local carregado: " + id + " - " + local.getNome());
 
-        ArrayList<Pista> pistas = local.getPistas();
-        ArrayList<Pista> pistasPendentes = new ArrayList<Pista>();
-        Iterator i = pistas.iterator();
-        Pista pista;
+        // ArrayList<Pista> pistas = local.getPistas();
+        // ArrayList<Pista> pistasPendentes = new ArrayList<Pista>();
+        // Iterator i = pistas.iterator();
+        // Pista pista;
 
-        while (i.hasNext()) {
-            pista = (Pista) i.next();
+        // while (i.hasNext()) {
+            // pista = (Pista) i.next();
 
-            // a pista ja esta para processar ou ja foi processada
-            if (pistasProcessar.contains(pista) || pista.isProcessada()) {
-                continue;
-            }
+            //a pista ja esta para processar ou ja foi processada
+            // if (pistasProcessar.contains(pista) || pista.isProcessada()) {
+                // continue;
+            // }
             
-            pistasPendentes.add(pista);
+            // pistasPendentes.add(pista);
 
-            System.out.println("Exibindo pista: " + pista.getNome());
-        }
+            // System.out.println("Exibindo pista: " + pista.getNome());
+        // }
 
-        locaisGUI.setVisible(false);
+        // locaisGUI.setVisible(false);
 
         // atualiza info na tela
-        localGUI.setEnergia(Integer.toString(jogador.getEnergia()));
-        localGUI.setJogador("Jogador: " + jogador.getNome());
-        localGUI.setXP(Integer.toString(jogador.getExperiencia()));
-        localGUI.setLocal(local.getNome());
-        localGUI.setPistas(pistasPendentes);
+        // localGUI.setEnergia(Integer.toString(jogador.getEnergia()));
+        // localGUI.setJogador("Jogador: " + jogador.getNome());
+        // localGUI.setXP(Integer.toString(jogador.getExperiencia()));
+        // localGUI.setLocal(local.getNome());
+        // localGUI.setPistas(pistasPendentes);
 
-        localGUI.setVisible(true);
+        //localGUI.setVisible(true);
     }
 
     /**
@@ -254,26 +254,26 @@ public class Controller {
      * @param id Identificador da pista achada.
      */
     void achouPista(int id) {
-        Pista pista = local.getPista(id);
+        // Pista pista = local.getPista(id);
 
-        if (pista == null) {
-            return;
-        }
+        // if (pista == null) {
+            // return;
+        // }
 
-        if (pista.isProcessada()) {
-            return;
-        }
+        // if (pista.isProcessada()) {
+            // return;
+        // }
 
-        if (pistasProcessar.contains(pista)) {
-            JOptionPane.showMessageDialog(localGUI, "Essa pista ja foi encontrada: " + pista.getNome());
-            return;
-        }
+        // if (pistasProcessar.contains(pista)) {
+            // JOptionPane.showMessageDialog(localGUI, "Essa pista ja foi encontrada: " + pista.getNome());
+            // return;
+        // }
 
-        pistasProcessar.add(pista);
+        // pistasProcessar.add(pista);
 
-        System.out.println("Pista adicionada: " + pista.getNome());
+        // System.out.println("Pista adicionada: " + pista.getNome());
 
-        JOptionPane.showMessageDialog(localGUI, "Pista encontrada: " + pista.getNome());
+        // JOptionPane.showMessageDialog(localGUI, "Pista encontrada: " + pista.getNome());
     }
 
     /**
@@ -282,23 +282,23 @@ public class Controller {
      * @param janela Janela que deverá ser escondida se desejado.
      */
     void visitaLaboratorio(javax.swing.JFrame janela) {
-        if (janela != null) janela.setVisible(false);
+        // if (janela != null) janela.setVisible(false);
         
-        labGUI.setEnergia(Integer.toString(jogador.getEnergia()));
-        labGUI.setJogador("Jogador: " + jogador.getNome());
-        labGUI.setXP(Integer.toString(jogador.getExperiencia()));
-        labGUI.setVisible(true);
+        // labGUI.setEnergia(Integer.toString(jogador.getEnergia()));
+        // labGUI.setJogador("Jogador: " + jogador.getNome());
+        // labGUI.setXP(Integer.toString(jogador.getExperiencia()));
+        // labGUI.setVisible(true);
         
-        Iterator i = pistasProcessar.iterator();
-        Pista pista;
-        ArrayList<String> pistas = new ArrayList<String>();
+        // Iterator i = pistasProcessar.iterator();
+        // Pista pista;
+        // ArrayList<String> pistas = new ArrayList<String>();
 
-        while (i.hasNext()) {
-            pista = (Pista) i.next();
-            pistas.add(pista.getNome());
-        }
+        // while (i.hasNext()) {
+            // pista = (Pista) i.next();
+            // pistas.add(pista.getNome());
+        // }
 
-        labGUI.setPistas(pistas);
+        // labGUI.setPistas(pistas);
     }
 
     /**
@@ -306,39 +306,39 @@ public class Controller {
      * sem processar no caso atual, o caso será considerado resolvido.
      */
     void processarPistas() {
-        Pista pista;
-        Iterator i = pistasProcessar.iterator();
+        // Pista pista;
+        // Iterator i = pistasProcessar.iterator();
 
-        while (i.hasNext()) {
-            pista = (Pista) i.next();
-            jogador.addExperiencia(pista.getExperiencia());
-            pista.setProcessada(true);
-        }
+        // while (i.hasNext()) {
+            // pista = (Pista) i.next();
+            // jogador.addExperiencia(pista.getExperiencia());
+            // pista.setProcessada(true);
+        // }
 
-        pistasProcessar.clear();
+        // pistasProcessar.clear();
 
-        System.out.println("Experiencia atual: " + jogador.getExperiencia());
+        // System.out.println("Experiencia atual: " + jogador.getExperiencia());
         
-        labGUI.setXP(Integer.toString(jogador.getExperiencia()));
-        labGUI.setPistas(new ArrayList<String>());
+        // labGUI.setXP(Integer.toString(jogador.getExperiencia()));
+        // labGUI.setPistas(new ArrayList<String>());
         
-        JOptionPane.showMessageDialog(labGUI, "Suas pistas foram processadas");
+        // JOptionPane.showMessageDialog(labGUI, "Suas pistas foram processadas");
         
-        // verifica se o caso acabou
-        if (casoEncerrado()) {
-            JOptionPane.showMessageDialog(labGUI, "PARABENS! O caso foi encerrado.");
-            jogador.addCasoEncerrado(caso.getId());
-            caso = null;
-            mostraCasos(labGUI);
-        }
+        //verifica se o caso acabou
+        // if (casoEncerrado()) {
+            // JOptionPane.showMessageDialog(labGUI, "PARABENS! O caso foi encerrado.");
+            // jogador.addCasoEncerrado(caso.getId());
+            // caso = null;
+            // mostraCasos(labGUI);
+        // }
     }
     
     /**
      * Jogador esta bebendo cafe para ganhar energia.
      */
     void beberCafe() {
-        jogador.addEnergia(50);
-        labGUI.setEnergia(Integer.toString(jogador.getEnergia()));
+        // jogador.addEnergia(50);
+        // labGUI.setEnergia(Integer.toString(jogador.getEnergia()));
     }
 
     /**
@@ -348,30 +348,30 @@ public class Controller {
      */
     boolean casoEncerrado() {
 
-        if (caso == null) {
-            return false;
-        }
+        // if (caso == null) {
+            // return false;
+        // }
 
-        Local local;
-        Pista pista;
-        Iterator iLocal = caso.getLocais().iterator();
-        Iterator iPista;
+        // Local local;
+        // Pista pista;
+        // Iterator iLocal = caso.getLocais().iterator();
+        // Iterator iPista;
 
-        while (iLocal.hasNext()) {
-            local = (Local) iLocal.next();
+        // while (iLocal.hasNext()) {
+            // local = (Local) iLocal.next();
 
-            iPista = local.getPistas().iterator();
+            // iPista = local.getPistas().iterator();
 
-            while (iPista.hasNext()) {
-                pista = (Pista) iPista.next();
+            // while (iPista.hasNext()) {
+                // pista = (Pista) iPista.next();
 
-                // achou pista sem processar
-                if (pista.isProcessada() == false) {
-                    return false;
-                }
-            }
-        }
+                //achou pista sem processar
+                // if (pista.isProcessada() == false) {
+                    // return false;
+                // }
+            // }
+        // }
 
-        return true;
+         return true;
     }
 }
