@@ -28,7 +28,7 @@ public class LoginGUI extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents() {/*
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -129,7 +129,7 @@ public class LoginGUI extends javax.swing.JFrame {
 
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
         setBounds((screenSize.width-650)/2, (screenSize.height-500)/2, 650, 500);
-    }// </editor-fold>//GEN-END:initComponents
+    */}// </editor-fold>//GEN-END:initComponents
 
     private void buttonJogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonJogarActionPerformed
         if (inputNome.getText().isEmpty()) {

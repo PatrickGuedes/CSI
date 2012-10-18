@@ -30,7 +30,7 @@ public class LaboratorioGUI extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
+/*
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -170,7 +170,7 @@ public class LaboratorioGUI extends javax.swing.JFrame {
 
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
         setBounds((screenSize.width-666)/2, (screenSize.height-538)/2, 666, 538);
-    }// </editor-fold>//GEN-END:initComponents
+   */ }// </editor-fold>//GEN-END:initComponents
 
     private void buttonProcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonProcessarActionPerformed
         Controller.getController().processarPistas();
