@@ -5,5 +5,11 @@
 *.war
 *.ear
 
+.settings
+.classpath
+.project
+nbproject
+target
+build
 
 target
