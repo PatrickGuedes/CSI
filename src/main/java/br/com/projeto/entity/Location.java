@@ -17,7 +17,7 @@ public class Location {
 	private String name;
 	
 	@Column(name = "case")
-	private Integer case;
+	private Integer caseId;
 
 	public void setId(Integer id) {
 		this.id = id;
@@ -25,6 +25,22 @@ public class Location {
 
 	public Integer getId() {
 		return id;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setCaseId(Integer caseId) {
+		this.caseId = caseId;
+	}
+
+	public Integer getCaseId() {
+		return caseId;
 	}
 
 

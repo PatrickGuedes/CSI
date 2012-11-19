@@ -1,11 +1,14 @@
 package br.com.projeto.entity;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import br.com.projeto.entity.Location;
+import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
 
 @Entity
 @Table(name = "cases")
@@ -45,10 +48,10 @@ public class Case {
 		return description;
 	}
 	
-	@OneToMany(fetch=FetchType.LAZY)
-	@JoinColumn(name="case")
-	public Set<Location> getLocations() {
-		return locations;
-	}
+//	@OneToMany(fetch=FetchType.LAZY)
+//	@JoinColumn(name="case")
+//	public Set<Location> getLocations() {
+//		return locations;
+//	}
 
 }
