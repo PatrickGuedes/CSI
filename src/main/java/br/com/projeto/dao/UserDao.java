@@ -22,7 +22,12 @@ public class UserDao  {
 		Query query = em.createQuery("from User u where u.login = :login and u.password = :password ");
 		query.setParameter("login", login);
 		query.setParameter("password", password);
-		return (User)query.getSingleResult();
+		
+		try {
+			return (User)query.getSingleResult();
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 }

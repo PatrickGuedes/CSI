@@ -1,14 +1,11 @@
 package br.com.projeto.entity;
 
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.OneToMany;
-import javax.persistence.JoinColumn;
+import javax.persistence.GeneratedValue;
 
 @Entity
 @Table(name = "cases")
@@ -16,6 +13,7 @@ public class Case {
 
 	@Id
 	@Column(name = "id")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	
 	@Column(name = "subject")
