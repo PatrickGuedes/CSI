@@ -27,7 +27,7 @@ CREATE TABLE `cases` (
   `subject` varchar(255) NOT NULL,
   `description` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,7 +36,7 @@ CREATE TABLE `cases` (
 
 LOCK TABLES `cases` WRITE;
 /*!40000 ALTER TABLE `cases` DISABLE KEYS */;
-INSERT INTO `cases` VALUES (1,'Caso 1','Descricao do caso, um pouco de detalhes');
+INSERT INTO `cases` VALUES (1,'Yoky','Empresário do ramo alimentício foi friamente esquartejado em seu apartamento de luxo. Há suspeitas de crime passional, pois o empresário estava tendo um relacionamento extra conjugal e havia ameaçado sua esposa de tomar a guarda do filho do casal.'),(2,'Quem matou Max','O vilão e malandro da novela das oito: Max foi assassinado nas mediações de um Lixão. O corpo foi encontrado com ferimentos na cabeça. Existem vários suspeitos do assassinato já que Max possuía vários inimigos.'),(3,'Flamengo','Bruno jogador no flamengo é suspeito de ter matado sua namorada Elisa. Bruno possui antecedentes criminais e há suspeita de sua participação no tráfico de drogas. O corpo da moça está desaparecido.');
 /*!40000 ALTER TABLE `cases` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -54,7 +54,7 @@ CREATE TABLE `locations` (
   PRIMARY KEY (`id`),
   KEY `fk_location_case` (`caseId`),
   CONSTRAINT `fk_location_case` FOREIGN KEY (`caseId`) REFERENCES `cases` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -63,7 +63,7 @@ CREATE TABLE `locations` (
 
 LOCK TABLES `locations` WRITE;
 /*!40000 ALTER TABLE `locations` DISABLE KEYS */;
-INSERT INTO `locations` VALUES (1,'Local 1',1),(2,'Local 2',1);
+INSERT INTO `locations` VALUES (1,'Sala de Estar',1),(2,'Quarto',1),(3,'Cozinha',1),(4,'Lixão',2),(5,'Barraco',2),(6,'Varanda',3),(7,'Quintal',3);
 /*!40000 ALTER TABLE `locations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -197,7 +197,7 @@ CREATE TABLE `traces` (
   KEY `fk_trace_location` (`locationId`),
   CONSTRAINT `fk_trace_case` FOREIGN KEY (`caseId`) REFERENCES `cases` (`id`),
   CONSTRAINT `fk_trace_location` FOREIGN KEY (`locationId`) REFERENCES `locations` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -206,7 +206,7 @@ CREATE TABLE `traces` (
 
 LOCK TABLES `traces` WRITE;
 /*!40000 ALTER TABLE `traces` DISABLE KEYS */;
-INSERT INTO `traces` VALUES (1,1,1,'Pista 1',10),(2,1,1,'Pista 2',5),(3,1,2,'Pista 3',15),(4,1,2,'Pista 4',17),(5,1,2,'Pista 5',8);
+INSERT INTO `traces` VALUES (1,1,1,'Revólver',10),(2,1,1,'Cartucho de Bala',5),(3,1,2,'Malas',15),(4,1,2,'Fitas de Video',17),(5,1,3,'Faca Guinso',8),(6,1,3,'Pipocas Yoki',11),(7,2,4,'Pedaço de madeira',7),(8,2,4,'Revólver',9),(9,2,5,'Faca',13),(10,2,5,'Batom Carmim',6),(11,3,6,'Rolo de Macarrão',10),(12,3,6,'Faca',7),(13,3,6,'Pacote de Cocaina',20),(14,3,7,'Cachorros Pit Bull',18),(15,3,7,'Pedaço de tecido',2);
 /*!40000 ALTER TABLE `traces` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -246,4 +246,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-11-20 22:29:52
+-- Dump completed on 2012-11-21 18:34:12
