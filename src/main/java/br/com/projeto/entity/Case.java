@@ -45,11 +45,5 @@ public class Case {
 	public String getDescription() {
 		return description;
 	}
-	
-//	@OneToMany(fetch=FetchType.LAZY)
-//	@JoinColumn(name="case")
-//	public Set<Location> getLocations() {
-//		return locations;
-//	}
 
 }

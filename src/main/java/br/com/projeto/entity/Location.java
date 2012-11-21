@@ -19,7 +19,7 @@ public class Location {
 	@Column(name = "name")
 	private String name;
 	
-	@Column(name = "case")
+	@Column(name = "caseId")
 	private Integer caseId;
 
 	public void setId(Integer id) {

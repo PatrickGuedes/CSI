@@ -16,10 +16,10 @@ public class Trace {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column(name = "case")
+	@Column(name = "caseId")
 	private Integer caseId;
 	
-	@Column(name = "location")
+	@Column(name = "locationId")
 	private Integer locationId;
 	
 	@Column(name = "name")
