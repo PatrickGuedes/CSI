@@ -22,7 +22,7 @@ public class LocationDaoTest {
 	// ID do caso para realizar os testes
 	private final int caseId = 1;
 	// Quantida de locais que o caso deve possuir
-	private final int numLocations = 2;
+	private final int numLocations = 3;
 	// ID do local que deve existir para o caso escolhido
 	private final Integer locationId = 1;
 	

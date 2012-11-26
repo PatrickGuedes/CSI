@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.GeneratedValue;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "cases")
@@ -21,6 +22,9 @@ public class Case {
 	
 	@Column(name = "description")
 	private String description;
+	
+	@Transient
+	private boolean userDone;
 
 	public void setId(Integer id) {
 		this.id = id;
@@ -44,6 +48,14 @@ public class Case {
 
 	public String getDescription() {
 		return description;
+	}
+
+	public void setUserDone(boolean userDone) {
+		this.userDone = userDone;
+	}
+
+	public boolean isUserDone() {
+		return userDone;
 	}
 
 }
