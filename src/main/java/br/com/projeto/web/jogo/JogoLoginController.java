@@ -11,7 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import br.com.projeto.service.UserService;
+import br.com.projeto.service.PlayerService;
 import br.com.projeto.util.Constants;
 
 
@@ -22,21 +22,13 @@ public class JogoLoginController {
 	private static final long serialVersionUID = 1L;
 	
 	@Autowired
-	private UserService service;
-
+	private PlayerService service;
 
 	@RequestMapping("/jogo/login")
-	public String login(@RequestParam(value="usuario",required=false) String login,
-						 @RequestParam(value="senha",required=false) String password,
-						 @RequestParam(value="requestedUrl",required=false) String requestedUrl) throws ServletException, IOException {
-		if(service.login(login, password)!=null){
-			if(StringUtils.isNotBlank(requestedUrl)){
-				return"redirect:"+requestedUrl.replaceAll("\\$10","?").replaceAll("\\$11","&");
-			}else{
-				return "redirect:/jogo";
-			}
-		}
-		return "redirect:/jogo/login.jsp?error=Usuário e/ou senha invalidos";
+	public String login(@RequestParam(value="login",required=false) String login,
+						 @RequestParam(value="password",required=false) String password) throws ServletException, IOException {
+
+		return "redirect:/jogo/cases.action";
 	}
 	
 	@RequestMapping("/jogo/logout")

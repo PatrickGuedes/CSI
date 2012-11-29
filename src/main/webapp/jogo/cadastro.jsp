@@ -19,18 +19,20 @@
 			
 <!-- ##################################CONTEÚDO################################### -->				
 		<div class="divconteudo float-left">
-			<h2>Login</h2>
+			<h2>Cadastro</h2>
     
-           <form action="/jogo/login.action" method="POST">
-           <div class="height1x">
-				<span class="campo">Usuário<br/><input type="text" name="login" id="nome" class="text7x" value="" /></span>
+           <form action="/jogo/cadastrar.action" id="frmCad" method="POST">
+		    
+			<div class="height1x">
+				<span class="campo">Login<br/><input type="text" name="login" id="login" class="text4x" value="" /></span>
+	
 			</div>	
             <div class="height1x">
-            	<span class="campo">Senha<br /><input type="password" name="password" id="senha" class="text3x" value="" /></span>
-           	</div>
+            	<span class="campo">Senha<br /><input type="password" name="senha" id="senha" class="text3x" value="" /></span>
+            	</div>	
             <div class="height1x">
-				<input type="submit" class="botao" value="Jogar"/>
-                <input type="button" class="botao" onclick="javascript:document.location.replace('cadastro.jsp');"  value="Cadastrar"/>			
+				
+                <input type="submit" class="botao" value="Cadastrar"/>			
 			</div>
            </form>
  
@@ -38,6 +40,8 @@
 	
 	<div class= "clear"></div><!-- fix bug altura atomática-->
 </div><!-- fim container -->
+	
+	
 
 </body>
 </html>
