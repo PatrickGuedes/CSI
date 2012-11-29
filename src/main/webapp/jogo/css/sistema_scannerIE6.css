@@ -1,0 +1,172 @@
+@charset "iso-8859-1";
+/* CSS Document */
+/* Correção do IE. Hide from IE Mac - O IE Win interpreta as quebras de linha entre os itens de lista, como espaços vazios e assim para o IE os itens do menu não se assentam um sobre o outro*/
+/* * html ul li { float: left; }
+* html ul li a { height: 1%; }*/
+/* End */
+body {
+	text-align:center; /* hack para o IE */ 
+	min-height:100%;
+	height:100%;
+}
+.container{
+	width:640px;
+	height:90%;
+	min-height:90%;
+	margin:0 auto; 
+	
+	text-align:left; /* "remédio" para o hack do IE */  
+	margin-top:10px;
+}
+/*################################################*/
+/*######              CABEÇALHO             ######*/
+/*################################################*/
+.divcabecalho{
+	width:640px;
+	height:156px;
+	padding-top:15px;
+	background-color: #003b7a;
+}
+.marca{
+	width:255px;
+	height:156px;
+	background-image:url(../img/logo.png) ;
+	background-repeat:no-repeat;
+	margin:0px 0px 0px 0px;
+	cursor: pointer;
+	cursor: hand;
+}
+.nome_sistema{
+	display:inline;
+	width:400px;
+	height:34px;
+	margin-left:15px;
+	padding-top:39px;
+}
+h1{
+	font-size:1.7em;
+	color:#446991;
+}
+
+/*################################################*/
+/*######              CONTEÚDO              ######*/
+/*################################################*/
+.divconteudo{
+	width:779px;
+	padding: 10px 5px 10px 15px;
+}
+h2{
+	color:#446991;
+	font-size:1.1em;
+	margin-bottom:2px;
+}/* para IE5.x, IE6 e IE7 */
+
+h3{
+	color:#446991;
+	margin-top:3px;
+}/* para IE5.x, IE6 e IE7 */
+*.width50 h3{
+	margin-left:0;
+	}/* para IE5.x, IE6 e IE7 */
+/*p {
+	line-height:180%;
+	margin-top: 10px;
+	text-align:justify;
+	width:600px;
+}
+p a {
+	text-decoration:underline;
+	color:#6699cc;
+	font-weight:500;
+	background-color:none;
+}
+p a:hover {
+	text-decoration:underline;
+	color:#6699cc;
+}
+	/*font-weight:bold;
+}
+
+.divconteudo a{
+	text-decoration:underline;
+	color:#6699cc;
+	font-weight:500;
+	background-color:none;
+}
+.divconteudo a:hover{
+	text-decoration:underline;
+	color:#6699cc;
+	font-weight:bold;
+}*/
+
+ul{
+	list-style:none;
+	border:none;
+}
+/*################################################*/
+/*######              MENU HORIZONTAL       ######*/
+/*################################################*/
+
+. menu {
+	padding:10px 0px 0px 10px;
+}
+
+. menu ul {
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	float: left;
+	margin-top:5px;
+	padding:5px;
+}
+
+.  menu ul li {
+	border:1px solid #146d39; 
+	color:#146d39;
+	display:inline;
+	margin:0;
+}
+.menu ul li a {
+
+	text-decoration:none;
+	background-color:#B1F79D;
+	font-size:1.6em;
+	
+	float:right;
+	margin:8px;
+	border:1px solid #146d39;
+	padding:5px;
+}
+
+.menu ul li a:hover{
+	background-color:#000000;
+	text-decoration:none;
+	display:inline;
+	color:#17539a;
+
+}
+
+.menu ul li a:visited{
+	color:#17539a;
+	text-decoration:none;
+	display:inline;
+	border:1px solid #146d39;
+}
+/*################################################*/
+/*######              RODAPÉ                ######*/
+/*################################################*/
+.divrodape{
+	width:630px;
+	background-color:#00244f; 
+	height:35px;
+	margin:0 auto;
+	margin-top:10px;
+	margin-bottom:10px;
+	border:1px solid #146d39;
+}
+.rodape{
+	color: #146d39;
+}
+
+
+

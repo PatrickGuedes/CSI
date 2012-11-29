@@ -1,0 +1,446 @@
+@charset "ISO-8859-1";
+/* CSS Document */
+
+body {
+	min-height:100%;
+}
+.container{
+	width:640px;
+	height:auto;
+	margin:0 auto; 
+	text-align:left; /* "remédio" para o hack do IE */  
+	margin-top:0px;
+}
+/*################################################*/
+/*######              CABEÇALHO             ######*/
+/*################################################*/
+
+.divcabecalho{
+	width:640px;
+	height:130px;
+	background-color:#003b7a;
+}
+
+.divcabecalhologin{
+	width:640px;
+	height:240px;
+	background-color:#003b7a;
+}
+.marca{
+	width:255px;
+	height:130px;
+	background-image:url(../img/logo2.png) ;
+	background-repeat:no-repeat;
+	cursor: pointer;
+	cursor: hand;
+}
+.marcalogin{
+	width:255px;
+	height:130px;
+	background-image:url(../img/logo2.png) ;
+	background-repeat:no-repeat;
+	margin-top:100px;
+	cursor: pointer;
+	cursor: hand;
+}
+.nome_usuario{
+	width:300px;
+	height:52px;
+	background-image:url(../img/jogador.png);
+	background-repeat:no-repeat;
+	background-color:#000000;
+	border:2px dotted #146d39;
+	margin:35px 0px 0px 70px;
+	padding:10px 0px 10px 10px;
+}
+
+h1{
+	font-size:1.0em;
+	padding-left:80px;
+}
+
+.azul {
+	color:#17539a;
+}
+
+.verde{
+	color: #146d39;
+}
+
+.bg_login{
+	background-image:url(../img/bg_login.png);
+	background-repeat:no-repeat;
+	float:right;
+	width:356px;
+	height:240px;
+	
+}
+
+/*################################################*/
+/*######              CONTEÚDO              ######*/
+/*################################################*/
+.divconteudo{
+	width:610px;
+	padding: 10px 10px 10px 15px;
+	background-color:#00244f; 
+	border: 1px solid #146d39;
+}
+h2{
+	color:#146d39;
+	font-size:2.4em;
+	margin:6px 0 10px -2px;
+	text-transform: uppercase;
+}
+h3{
+	color:#17539a;
+	font-size:1.8em;
+	margin:0px 0 10px 0px;
+	padding:10px 10px 0px 110px;
+}
+h4{
+	color:#17539a;
+	font-size:1.8em;
+	margin:6px 0 10px -2px;
+}
+p {
+	line-height:180%;
+	margin-top: 10px;
+	color:#146d39;
+	text-align:justify;
+	width:auto;
+	padding:0px 10px 10px 110px;
+}
+
+
+/*################################################*/
+/*######             CASOS                  ######*/
+/*################################################*/
+
+.casos {
+	background-image:url(../img/ico_arquivo.png); 
+	background-repeat:no-repeat;
+	background-position:bottom left;
+	margin-bottom:10px;
+	background-color:#000000;
+	border:2px dotted #146d39; 
+	display:block;
+	
+}
+.casos a {
+	display:block;
+	text-decoration:none;
+}
+
+.casos a:hover{
+	background-image:url(../img/ico_arquivo.png); 
+	background-repeat:no-repeat;
+	background-position:bottom left;
+	background-color:#B1F79D;
+	display:block;
+}
+
+/*################################################*/
+/*######             PISTAS                 ######*/
+/*################################################*/
+
+.pistas{
+	background-image:url(../img/ico_pista.png); 
+	background-repeat:no-repeat;
+	background-position:bottom left;
+	margin-bottom:10px;
+	background-color:#000000;
+	border:2px dotted #146d39; 
+	display:block;
+	
+}
+.pistas a {
+	display:block;
+	text-decoration:none;
+}
+
+.pistas a:hover{
+	background-image:url(../img/ico_arquivo.png); 
+	background-repeat:no-repeat;
+	background-position:bottom left;
+	background-color:#B1F79D;
+	display:block;
+}
+
+containerpistas{
+	margin: 0px 10px 10px 10px;
+
+
+}
+.pistaslocal{
+	background-image:url(../img/ico_pista.png); 
+	background-repeat:no-repeat;
+	margin: 10px 10px 10px 10px;
+	height:75px;
+	width:88px;
+	background-color:#000000;
+	border:2px dotted #146d39; 
+	
+}
+.pistaslocal a {
+	text-decoration:none;
+	height:75px;
+	width:88px;
+	display:block;
+}
+
+.pistaslocal a:hover{
+	background-image:url(../img/ico_pista.png); 
+	background-repeat:no-repeat;
+	height:75px;
+	width:88px;
+	background-color:#B1F79D;
+	display:block;
+}
+
+/*################################################*/
+/*######             LOCAIS                 ######*/
+/*################################################*/
+
+.locais{
+	background-image:url(../img/ico_locais.png); 
+	background-repeat:no-repeat;
+	background-position:bottom left;
+	height:63px;
+	margin-bottom:10px;
+	background-color:#000000;
+	border:2px dotted #146d39; 
+	display:block;
+	
+}
+.locais a {
+	display:block;
+	text-decoration:none;
+}
+
+.locais a:hover{
+	background-image:url(../img/ico_locais.png); 
+	background-repeat:no-repeat;
+	height:63px;
+	background-position:bottom left;
+	background-color:#B1F79D;
+	display:block;
+}
+
+/*################################################*/
+/*######             FORMULÁRIO              ######*/
+/*################################################*/
+input, select{
+	border:1px dotted #146d39;
+	line-height:18px;
+	padding-left:3px;
+	height:25px;
+	color: #146d39;
+	background-color:#000000;
+	
+	/*	background-color:#17539a;*/
+}
+.campo{
+	margin-right:15px;
+	color:#17539a;
+	font-size:1.5em;
+}
+
+.height1x{
+	height:60px; 
+}
+
+.text1x {
+	width:69px;
+}
+.text2x {
+	width:158px;
+}
+.text3x {
+	width:247px;
+}
+.text4x {
+	width:336px;
+}
+.text5x {
+	width:425px;
+}
+.text6x {
+	width:514px;
+}
+.text7x {
+	width:603px;
+}
+.text8x {
+	width:692px;
+}
+.text9x {
+	width:742px;
+}
+
+.botao{
+	background-image:url(../img/bg_btn.png);
+	background-repeat:repeat-x;	
+	height:30px;
+	border: none;
+	width:auto;
+	text-align:center;
+	margin-right:12px;
+	font-size:1.6em;
+	color:#17539a;
+	padding:0px 8px 3px 8px; 
+}
+.botao_azul{
+	background-image:url(../img/bg_btn_azul.png);
+	background-repeat:repeat-x;	
+	height:25px;
+	border: none;
+	width:auto;
+	text-align:center;
+	margin-right:12px;
+	font-size:1.2em;
+	color:#000000;
+	padding:0px 5px 3px 5px; 
+}
+
+
+/*################################################*/
+/*######              MENU HORIZONTAL       ######*/
+/*################################################*/
+
+.menu {
+
+}
+
+.menu ul {
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	margin-top:0px;
+	padding:5px;
+}
+
+.menu ul li {
+	list-style-type:none;
+	display:inline;
+	margin:0;
+}
+.menu ul li a {
+	background-image:url(../img/bg_btn.png);
+	text-decoration:none;
+	background-color:#B1F79D;
+	color:#17539a;
+	font-size:1.6em;
+	display:inline;
+	margin:8px;
+	padding:5px;
+	border:1px solid #146d39;
+}
+
+.menu ul li a:hover{
+	background-color:#000000;
+	text-decoration:none;
+	display:inline;
+	color:#17539a;
+}
+
+.menu ul li a:visited{
+	color:#17539a;
+	text-decoration:none;
+	display:inline;
+	border:1px solid #146d39;
+}
+
+/*################################################*/
+/*######              RODAPÉ  MENU          ######*/
+/*################################################*/
+.divrodape{
+	width:630px;
+	background-color:#00244f; 
+	height:50px;
+	margin:0 auto;
+	margin-top:5px;
+	border:1px solid #146d39;
+}
+
+.rodape{
+	color:#000000;
+}
+/*################################################*/
+/*######              TABLE              ######*/
+/*################################################*/
+
+ table{
+  width:600px;
+  border:1px solid #146D39;
+}
+
+table thead th{
+
+	background-image:url(../img/bg_btn.png);
+	text-decoration:none;
+	background-color:#B1F79D;
+  padding:6px;
+  color:#17539A; 
+  text-align:center;
+  font-size:14px;
+}
+
+table thead th.header{
+  cursor:pointer;
+}
+
+table tbody td{
+  padding:6px;
+  text-align:center;
+  color:#146D39;
+}
+
+table tbody tr.odd td{
+  background-color:#000;
+}
+
+table tbody tr.hover td{
+  background-color:#B1F79D;
+}
+
+table tbody tr.selected td{
+  background-color:#B1F79D;!important;
+}
+
+.pagedisplay{
+width:40px;
+text-align:center;
+border:none;
+background-color:#000;
+margin-left:10px;
+font-weight:900;
+}
+
+#pager span{
+font-weight:900;
+color:#146D39;
+float:right;
+margin-right:10px;
+}
+
+#pager form{
+text-align:left;
+background-color:#00244F;
+width:630px;
+position:relative;
+top:18px;
+}
+
+.divpaginacao{
+	width:630px;
+	background-color:#00244f; 
+	height:30px;
+	margin:0 auto;
+	margin-top:1px;
+	border:1px solid #146d39;
+}
+
+
+
+
+
