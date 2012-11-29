@@ -48,6 +48,12 @@ public class PlayerDao {
 		}
 	}
 	
+	@Transactional
+	public boolean insert(Player player) {
+		em.persist(player);
+		return true;
+	}
+	
 	public List<Case> getCases(Integer playerId) {
 		List<Case> cases = caseDao.allCases();
 		@SuppressWarnings("unused")

@@ -5,18 +5,13 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
 import br.com.projeto.entity.Player;
 import br.com.projeto.service.PlayerService;
-import br.com.projeto.util.Constants;
-
 
 
 @Controller
@@ -39,12 +34,11 @@ public class JogoLoginController {
 
 		return "redirect:/jogo/cases.action";
 	}
+
 	
 	@RequestMapping("/jogo/logout")
 	public String logout(HttpSession session) throws Exception {
-		if(session.getAttribute(Constants.USER_ADMIN) != null)
-			session.removeAttribute(Constants.USER_ADMIN);
-		
+		service.logout();
 		return "redirect:/jogo";
 	}
 	

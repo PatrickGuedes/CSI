@@ -24,11 +24,11 @@
            <form action="/jogo/cadastrar.action" id="frmCad" method="POST">
 		    
 			<div class="height1x">
-				<span class="campo">Login<br/><input type="text" name="login" id="login" class="text4x" value="" /></span>
+				<span class="campo">Login<br/><input type="text" name="username" id="login" class="text4x" value="" /></span>
 	
 			</div>	
             <div class="height1x">
-            	<span class="campo">Senha<br /><input type="password" name="senha" id="senha" class="text3x" value="" /></span>
+            	<span class="campo">Senha<br /><input type="password" name="password" id="senha" class="text3x" value="" /></span>
             	</div>	
             <div class="height1x">
 				

@@ -33,25 +33,35 @@ public class PlayerService {
 		
 		return player;
 	}
+	
+	
+	public void logout() {
+		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		HttpSession session = attr.getRequest().getSession(true);
+		session.removeAttribute("Player");
+	}
 
 	
-//	public Player cadastrar(String login,String password){
-
-//		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
-//		HttpSession session = attr.getRequest().getSession(true);
+	public boolean newPlayer() {
+		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		HttpSession session = attr.getRequest().getSession(true);
 		
-//		User user = dao.get(login, CryptUtils.md5(password));
-//		
-//		if (user == null) {
-//			return null;
-//		}
-//		
-//		session.setAttribute(Constants.USER_ADMIN, user);
+		Player player = new Player();
 		
-//		return user;
+		player.setUsername(attr.getRequest().getParameter("username"));
+		player.setPassword( CryptUtils.md5(attr.getRequest().getParameter("password")) );
+		player.setXp(0);
 
-//	}
+		boolean result = dao.insert(player);
+		
+		if (result) {
+			session.setAttribute("LoginMessage", "Cadastro realizado com sucesso.");
+		} else {
+			session.setAttribute("CadastroMessage", "Preencha corretamente o cadastro.");
+		}
+		
+		return result;
+	}
 
-	
 
 }
