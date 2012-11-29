@@ -20,6 +20,15 @@
 <!-- ##################################CONTEÚDO################################### -->				
 		<div class="divconteudo float-left">
 			<h2>Login</h2>
+			
+			<%
+			String message = (String) session.getAttribute("LoginMessage");
+			if (message != null) {
+				out.print("<div class=\"mensagem_erro\">");
+				out.print( message );
+				out.print("</div><br/>");
+			}
+			%>
     
            <form action="/jogo/login.action" method="POST">
            <div class="height1x">

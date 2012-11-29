@@ -16,6 +16,23 @@ public class PlayerService {
 
 	@Autowired
 	private PlayerDao dao;
+	
+	public Player login(String username, String password) {
+		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		HttpSession session = attr.getRequest().getSession(true);
+		
+		Player player = dao.login(username, CryptUtils.md5(password));
+		
+		// nao conseguiu autenticar
+		if (player == null) {
+			session.setAttribute("LoginMessage", "Usuário ou senha inválido.");
+			return null;
+		}
+		
+		session.setAttribute("Player", player);
+		
+		return player;
+	}
 
 	
 //	public Player cadastrar(String login,String password){

@@ -10,7 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
+import br.com.projeto.entity.Player;
 import br.com.projeto.service.PlayerService;
 import br.com.projeto.util.Constants;
 
@@ -27,6 +30,12 @@ public class JogoLoginController {
 	@RequestMapping("/jogo/login")
 	public String login(@RequestParam(value="login",required=false) String login,
 						 @RequestParam(value="password",required=false) String password) throws ServletException, IOException {
+		
+		Player player = service.login(login, password);
+		
+		if (player == null) {
+			return "redirect:/jogo/";
+		}
 
 		return "redirect:/jogo/cases.action";
 	}
