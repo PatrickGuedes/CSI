@@ -43,6 +43,14 @@
     <filter-name>LoginFilter</filter-name>
     <url-pattern>/adm/*</url-pattern>
   </filter-mapping>
+  <filter>
+    <filter-name>JogoLoginFilter</filter-name>
+    <filter-class>br.com.projeto.web.jogo.filter.JogoLoginFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>JogoLoginFilter</filter-name>
+    <url-pattern>/jogoDisabled/*</url-pattern>
+  </filter-mapping>
   <resource-ref>
     <description>Datasource</description>
     <res-ref-name>jdbc/DefaultDS</res-ref-name>
