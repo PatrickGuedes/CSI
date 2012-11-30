@@ -54,6 +54,12 @@ public class PlayerDao {
 		return true;
 	}
 	
+	@Transactional
+	public boolean update(Player player) {
+		em.merge(player);
+		return true;
+	}
+	
 	public List<Case> getCases(Integer playerId) {
 		List<Case> cases = caseDao.allCases();
 		@SuppressWarnings("unused")

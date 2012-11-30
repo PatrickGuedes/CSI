@@ -30,6 +30,9 @@ public class Player {
 	@Column(name = "xp")
 	private Integer xp;
 	
+	@Column(name = "energy")
+	private Integer energy;
+	
 	@Column(name = "labProcessStart")
 	private Date labProcessStart;
 	
@@ -90,6 +93,17 @@ public class Player {
 
 	public Date getLabProcessEnd() {
 		return labProcessEnd;
+	}
+
+	public void setEnergy(Integer energy) {
+		if (energy < 0) energy = 0;
+		else if (energy > 100) energy = 100;
+		
+		this.energy = energy;
+	}
+
+	public Integer getEnergy() {
+		return energy;
 	}
 
 

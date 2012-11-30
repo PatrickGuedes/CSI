@@ -51,6 +51,7 @@ public class PlayerService {
 		player.setUsername(attr.getRequest().getParameter("username"));
 		player.setPassword( CryptUtils.md5(attr.getRequest().getParameter("password")) );
 		player.setXp(0);
+		player.setEnergy(100);
 
 		boolean result = dao.insert(player);
 		
@@ -61,6 +62,30 @@ public class PlayerService {
 		}
 		
 		return result;
+	}
+	
+	public boolean hasOpenCase() {
+		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		HttpSession session = attr.getRequest().getSession(true);
+
+		Player player = (Player) session.getAttribute("Player");
+		
+		if (player == null) return false;
+		
+		return (player.getCaseOpen() != null);
+	}
+	
+	public void openCase() {
+		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		HttpSession session = attr.getRequest().getSession(true);
+
+		Player player = (Player) session.getAttribute("Player");
+		
+		if (player == null) return;
+		
+		player.setCaseOpen(Integer.parseInt(attr.getRequest().getParameter("caseId")));
+		
+		dao.update(player);
 	}
 
 
