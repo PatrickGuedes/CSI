@@ -21,6 +21,9 @@ public class Location {
 	
 	@Column(name = "caseId")
 	private Integer caseId;
+	
+	@Column(name = "energy")
+	private Integer energy;
 
 	public void setId(Integer id) {
 		this.id = id;
@@ -44,6 +47,14 @@ public class Location {
 
 	public Integer getCaseId() {
 		return caseId;
+	}
+
+	public void setEnergy(Integer energy) {
+		this.energy = energy;
+	}
+
+	public Integer getEnergy() {
+		return energy;
 	}
 
 

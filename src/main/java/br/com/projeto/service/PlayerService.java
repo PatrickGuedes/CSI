@@ -12,6 +12,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import br.com.projeto.dao.LocationDao;
 import br.com.projeto.dao.PlayerDao;
 import br.com.projeto.entity.Case;
+import br.com.projeto.entity.Location;
 import br.com.projeto.entity.Player;
 import br.com.projeto.util.CryptUtils;
 
@@ -120,19 +121,33 @@ public class PlayerService {
 		session.setAttribute("Locations", locationDao.locationsByCase(player.getCaseOpen()));
 	}
 
-	public void getTraces() {
+	public boolean getTraces(Integer locationId) {
 		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
 		HttpSession session = attr.getRequest().getSession(true);
 
 		Player player = (Player) session.getAttribute("Player");
 		
-		if (player == null) return;
+		if (player == null) return false;
 		
-		if (player.getCaseOpen() == null) return;
-		
-		Integer locationId = Integer.parseInt(attr.getRequest().getParameter("locationId"));
+		if (player.getCaseOpen() == null) return false;
 
-		session.setAttribute("Traces", dao.getLocationTraces(player.getId(), locationId));		
+		Location locationObj = locationDao.findById(locationId); 
+		
+		// nao tem energia suficiente
+		if (player.getEnergy() < locationObj.getEnergy()) {
+			session.setAttribute("NoEnergy", true);
+			return false;
+		}
+		
+		// atualiza a energia
+		player.setEnergy( player.getEnergy() - locationObj.getEnergy() );
+		
+		dao.update(player);
+
+		session.setAttribute("NoEnergy", false);
+		session.setAttribute("Traces", dao.getLocationTraces(player.getId(), locationId));
+		
+		return true;
 	}
 
 	public void getLabTraces() {

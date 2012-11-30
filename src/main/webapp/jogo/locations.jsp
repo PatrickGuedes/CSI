@@ -16,7 +16,7 @@
 			<h2>Locais</h2>
 			<c:forEach items="${Locations}" var="locais">
 				<div class='locais'> 
-             	<a href="/jogo/openLocation.action?locationId=${locais.id}">
+             	<a href="/jogo/traces.action?locationId=${locais.id}">
                	<h3>${locais.name}</h3>			
                 </a>
 				</div>
