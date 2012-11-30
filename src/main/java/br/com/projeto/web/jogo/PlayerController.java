@@ -24,6 +24,8 @@ public class PlayerController {
 			return "redirect:/jogo/locations.action";			
 		}
 		
+		service.getCases();
+		
 		return "redirect:/jogo/cases.jsp";
 	}
 	

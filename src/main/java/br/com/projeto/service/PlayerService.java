@@ -1,5 +1,7 @@
 package br.com.projeto.service;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import br.com.projeto.dao.PlayerDao;
+import br.com.projeto.entity.Case;
 import br.com.projeto.entity.Player;
 import br.com.projeto.util.CryptUtils;
 
@@ -86,6 +89,19 @@ public class PlayerService {
 		player.setCaseOpen(Integer.parseInt(attr.getRequest().getParameter("caseId")));
 		
 		dao.update(player);
+	}
+	
+	public void getCases() {
+		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		HttpSession session = attr.getRequest().getSession(true);
+
+		Player player = (Player) session.getAttribute("Player");
+		
+		if (player == null) return;
+		
+		List<Case> cases = dao.getCases(player.getId());
+
+		session.setAttribute("Cases", cases);
 	}
 
 
