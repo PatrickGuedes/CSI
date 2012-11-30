@@ -82,10 +82,11 @@ CREATE TABLE `player` (
   `xp` int(10) unsigned NOT NULL DEFAULT '0',
   `labProcessStart` datetime DEFAULT NULL,
   `labProcessEnd` datetime DEFAULT NULL,
+  `energy` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_player_case` (`caseOpen`),
   CONSTRAINT `fk_player_case` FOREIGN KEY (`caseOpen`) REFERENCES `cases` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -94,7 +95,7 @@ CREATE TABLE `player` (
 
 LOCK TABLES `player` WRITE;
 /*!40000 ALTER TABLE `player` DISABLE KEYS */;
-INSERT INTO `player` VALUES (1,'csi','a2a20311145545e816805093629f27c6',NULL,0,NULL,NULL);
+INSERT INTO `player` VALUES (1,'csi','a2a20311145545e816805093629f27c6',NULL,0,NULL,NULL,100);
 /*!40000 ALTER TABLE `player` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -248,4 +249,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-11-25 23:51:15
+-- Dump completed on 2012-11-30 12:51:16
