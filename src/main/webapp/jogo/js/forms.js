@@ -1,24 +1,24 @@
  $(document).ready(function(){
-		
+		alert('pelota');
 		$('#frmLogin').validate({
             rules:{
-                nome:{
+                login:{
                     required: true,
                     minlength: 3
                 },
-                senha: {
+                password: {
                     required: true,
                     minlength: 3
                 }
                 
             },
             messages:{
-                nome:{
-                    required: "O campo nome é obrigatorio.",
-                    minlength: "O campo nome deve conter no mínimo 3 caracteres."
+                login:{
+                    required: "O campo login é obrigatorio.",
+                    minlength: "O campo login deve conter no mínimo 3 caracteres."
                 },
 				
-                senha: {
+                password: {
                     required: "O campo senha é obrigatorio.",
 					minlength: "O campo senha deve conter no mínimo 3 caracteres."
                 }
@@ -34,7 +34,7 @@
                     minlength: 3
                 },
                 password: {
-                    required: true
+                    required: true,
 					minlength: 6
                     //email: true
                 }
