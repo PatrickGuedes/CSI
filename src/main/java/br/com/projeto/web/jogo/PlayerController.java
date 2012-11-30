@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.projeto.service.PlayerService;
 
@@ -56,6 +57,14 @@ public class PlayerController {
 	public String lab() {
 		service.getLabTraces();
 		return "/jogo/lab.jsp";
+	}
+	
+	@RequestMapping("/jogo/drinkCoffee")
+	public @ResponseBody String drinkCoffee() {
+		if (service.drinkCoffee()) {
+			return "{ \"Success\": true }";
+		}
+		return "{ \"Success\": false }";
 	}
 
 }

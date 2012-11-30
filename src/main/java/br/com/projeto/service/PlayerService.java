@@ -160,4 +160,19 @@ public class PlayerService {
 
 		session.setAttribute("LabTraces", dao.getTracesToProcess(player.getId()));		
 	}
+	
+	public boolean drinkCoffee() {
+		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		HttpSession session = attr.getRequest().getSession(true);
+
+		Player player = (Player) session.getAttribute("Player");
+		
+		if (player == null) return false;
+		
+		// ganha energia
+		player.setEnergy( player.getEnergy() + 30 );
+		dao.update(player);
+
+		return true;
+	}
 }
