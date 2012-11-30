@@ -120,5 +120,19 @@ public class PlayerService {
 		session.setAttribute("Locations", locationDao.locationsByCase(player.getCaseOpen()));
 	}
 
+	public void getTraces() {
+		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		HttpSession session = attr.getRequest().getSession(true);
+
+		Player player = (Player) session.getAttribute("Player");
+		
+		if (player == null) return;
+		
+		if (player.getCaseOpen() == null) return;
+		
+		Integer locationId = Integer.parseInt(attr.getRequest().getParameter("locationId"));
+
+		session.setAttribute("Traces", dao.getLocationTraces(player.getId(), locationId));		
+	}
 
 }

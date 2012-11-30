@@ -40,5 +40,11 @@ public class PlayerController {
 		service.getLocations();
 		return "/jogo/locations.jsp";
 	}
-	
+
+	@RequestMapping("/jogo/traces")
+	public String traces() {
+		service.getTraces();
+		return "/jogo/traces.jsp";
+	}
+
 }
