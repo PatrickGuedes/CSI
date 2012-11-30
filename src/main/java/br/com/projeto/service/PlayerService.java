@@ -135,4 +135,14 @@ public class PlayerService {
 		session.setAttribute("Traces", dao.getLocationTraces(player.getId(), locationId));		
 	}
 
+	public void getLabTraces() {
+		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		HttpSession session = attr.getRequest().getSession(true);
+
+		Player player = (Player) session.getAttribute("Player");
+		
+		if (player == null) return;
+
+		session.setAttribute("LabTraces", dao.getTracesToProcess(player.getId()));		
+	}
 }
