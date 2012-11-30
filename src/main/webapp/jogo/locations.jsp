@@ -5,8 +5,18 @@
 
 <%@ include file="/jogo/inc/taghead.jsp" %>
 
-<body>
 
+<body>
+<% 
+
+if(session.getAttribute("NoEnergy") != null){ 
+
+%>
+	
+	<script>alert("Voce está sem energia");</script>
+<% 
+	} 
+%>
 <div class="container">
 
 	<%@ include file="/jogo/inc/playerHeader.jsp" %>
