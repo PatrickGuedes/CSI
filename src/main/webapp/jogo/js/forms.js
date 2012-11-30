@@ -1,5 +1,5 @@
  $(document).ready(function(){
-		alert('pelota');
+		
 		$('#frmLogin').validate({
             rules:{
                 login:{
