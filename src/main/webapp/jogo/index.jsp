@@ -30,9 +30,9 @@
 			}
 			%>
     
-           <form action="/jogo/login.action" method="POST">
+           <form action="/jogo/login.action" id="frmLogin" method="POST">
            <div class="height1x">
-				<span class="campo">Usuário<br/><input type="text" name="login" id="nome" class="text7x" value="" /></span>
+				<span class="campo">Usuário<br/><input type="text" name="login" id="nome" class="text4x" value="" /></span>
 			</div>	
             <div class="height1x">
             	<span class="campo">Senha<br /><input type="password" name="password" id="senha" class="text3x" value="" /></span>
