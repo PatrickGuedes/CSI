@@ -6,7 +6,7 @@
 			<h1>
             <!--Jogador-->
             	<span class="azul">Player:</span> 
-                <span class="verde">${Player.getUsername()}</span><br />
+                <span class="verde">${Player.username}</span><br />
             <!--XP-->  
             	<span class="azul">XP:</span> 
                 <span class="verde">${Player.getXp()}</span><br />
