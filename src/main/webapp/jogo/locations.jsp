@@ -14,9 +14,17 @@
 <!-- ##################################CONTEÚDO################################### -->				
 		<div class="divconteudo float-left">
 			<h2>Locais</h2>
-	
+			<c:forEach items="${Locations}" var="locais">
+				<div class='locais'> 
+             	<a href="/jogo/openLocation.action?locationId=${locais.id}">
+               	<h3>${locais.name}</h3>			
+                </a>
+				</div>
+				
+						
+			</c:forEach>
             
-           <div class="locais"> 
+           <!-- <div class="locais"> 
              	<a href=pistas.html>
 					<h3>Laboratório de Informática</h3>		
 			 </a>
@@ -32,7 +40,7 @@
              	<a href="#">
                 	<h3>Sala de Jogos</span></h3>
 				</a>
-            </div>
+            </div>-->
  
 		</div><!-- fim conteudo-->	
 	
