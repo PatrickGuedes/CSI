@@ -51,6 +51,7 @@ CREATE TABLE `locations` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `caseId` int(11) NOT NULL,
+  `energy` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_location_case` (`caseId`),
   CONSTRAINT `fk_location_case` FOREIGN KEY (`caseId`) REFERENCES `cases` (`id`)
@@ -63,7 +64,7 @@ CREATE TABLE `locations` (
 
 LOCK TABLES `locations` WRITE;
 /*!40000 ALTER TABLE `locations` DISABLE KEYS */;
-INSERT INTO `locations` VALUES (1,'Sala de Estar',1),(2,'Quarto',1),(3,'Cozinha',1),(4,'Lixão',2),(5,'Barraco',2),(6,'Varanda',3),(7,'Quintal',3);
+INSERT INTO `locations` VALUES (1,'Sala de Estar',1,29),(2,'Quarto',1,33),(3,'Cozinha',1,15),(4,'Lixão',2,56),(5,'Barraco',2,43),(6,'Varanda',3,47),(7,'Quintal',3,61);
 /*!40000 ALTER TABLE `locations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -249,4 +250,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-11-30 12:51:16
+-- Dump completed on 2012-11-30 17:10:51
