@@ -5,7 +5,7 @@
 
         <div class="menu">
 			<ul>
-				<c:if test="${fn:contains(url, 'traces.jsp') }">
+				<c:if test="${fn:contains(url, 'traces.jsp') || fn:contains(url, 'lab.jsp')}">
 					<li><a href="/jogo/locations.action" class="float-right">Locais</a></li>
 				</c:if>
 				<c:if test="${fn:contains(url, 'locations.jsp') }">
