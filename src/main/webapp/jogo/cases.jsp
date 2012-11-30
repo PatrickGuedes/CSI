@@ -16,26 +16,16 @@
 			<h2>Casos</h2>
 	
             
-           <div class="casos"> 
-             	<a href="/jogo/openCase.action?caseId=1">
-               	<h3>Caso 1</h3>			
-                	<p>Lorem ipsum dolor sit amet, porta sit amet fringilla quis, semper fringilla dolor. Suspendisse metus dui, dictum in scelerisque nec, tristique id nunc. Nulla consectetur metus quis sapien malesuada pellentesque.  </p>
-				</a>
-             </div>
-            
-      <div class="casos"> 
-             	<a href="#">
-                	<h3>Caso 2</h3>			
-                	<p>Lorem ipsum dolor sit amet, porta sit amet fringilla quis, semper fringilla dolor. Suspendisse metus dui, dictum in scelerisque nec, tristique id nunc. Nulla consectetur metus quis sapien malesuada pellentesque. a. </p>
-				</a>
-            </div>
-            
-            <div class="casos"> 
-             	<a href="#">
-                	<h3>Caso 3</h3>			
-                	<p>Lorem ipsum dolor sit amet, porta sit amet fringilla quis, semper fringilla dolor. Suspendisse metus dui, dictum in scelerisque nec, tristique id nunc. Nulla consectetur metus quis sapien malesuada pellentesque. a. </p>
-				</a>
-            </div>
+           <c:forEach items="${Cases}" var="item">
+				<div class="casos"> 
+             	<a href="locais.html">
+               	<h3>${item.subject}</h3>			
+                	<p>${item.description }</p>
+                </a>
+				</div>
+				
+						
+			</c:forEach>
  
 		</div><!-- fim conteudo-->	
 	
