@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import br.com.projeto.dao.LocationDao;
 import br.com.projeto.dao.PlayerDao;
 import br.com.projeto.entity.Case;
 import br.com.projeto.entity.Player;
@@ -19,6 +20,8 @@ public class PlayerService {
 
 	@Autowired
 	private PlayerDao dao;
+	@Autowired
+	private LocationDao locationDao;	
 	
 	public Player login(String username, String password) {
 		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
@@ -102,6 +105,19 @@ public class PlayerService {
 		List<Case> cases = dao.getCases(player.getId());
 
 		session.setAttribute("Cases", cases);
+	}
+	
+	public void getLocations() {
+		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		HttpSession session = attr.getRequest().getSession(true);
+
+		Player player = (Player) session.getAttribute("Player");
+		
+		if (player == null) return;
+		
+		if (player.getCaseOpen() == null) return;
+
+		session.setAttribute("Locations", locationDao.locationsByCase(player.getCaseOpen()));
 	}
 
 

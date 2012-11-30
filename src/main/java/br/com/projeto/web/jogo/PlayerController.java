@@ -26,13 +26,19 @@ public class PlayerController {
 		
 		service.getCases();
 		
-		return "redirect:/jogo/cases.jsp";
+		return "/jogo/cases.jsp";
 	}
 	
 	@RequestMapping("/jogo/openCase")
 	public String openCase() {
 		service.openCase();
 		return "redirect:/jogo/locations.action";
+	}
+	
+	@RequestMapping("/jogo/locations")
+	public String locations() {
+		service.getLocations();
+		return "/jogo/locations.jsp";
 	}
 	
 }
