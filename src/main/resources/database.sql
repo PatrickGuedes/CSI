@@ -96,7 +96,7 @@ CREATE TABLE `player` (
 
 LOCK TABLES `player` WRITE;
 /*!40000 ALTER TABLE `player` DISABLE KEYS */;
-INSERT INTO `player` VALUES (1,'csi','a2a20311145545e816805093629f27c6',NULL,0,NULL,NULL,100);
+INSERT INTO `player` VALUES (1,'csi','a2a20311145545e816805093629f27c6',1,120,NULL,NULL,71);
 /*!40000 ALTER TABLE `player` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -136,14 +136,14 @@ DROP TABLE IF EXISTS `rplayercases`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `rplayercases` (
-  `player` int(11) NOT NULL,
-  `case` int(11) NOT NULL,
+  `playerId` int(11) NOT NULL,
+  `caseId` int(11) NOT NULL,
   `solved` tinyint(1) NOT NULL,
-  KEY `fk_player` (`player`),
-  KEY `fk_case` (`case`),
-  CONSTRAINT `fk_case` FOREIGN KEY (`case`) REFERENCES `cases` (`id`),
-  CONSTRAINT `fk_player` FOREIGN KEY (`player`) REFERENCES `player` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`),
+  KEY `fk_player` (`playerId`),
+  KEY `fk_case` (`caseId`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -152,6 +152,7 @@ CREATE TABLE `rplayercases` (
 
 LOCK TABLES `rplayercases` WRITE;
 /*!40000 ALTER TABLE `rplayercases` DISABLE KEYS */;
+INSERT INTO `rplayercases` VALUES (1,1,0,1);
 /*!40000 ALTER TABLE `rplayercases` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -163,14 +164,12 @@ DROP TABLE IF EXISTS `rplayertraces`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `rplayertraces` (
-  `player` int(11) NOT NULL,
-  `trace` int(11) NOT NULL,
+  `playerId` int(11) NOT NULL,
+  `traceId` int(11) NOT NULL,
   `processed` tinyint(1) NOT NULL,
-  PRIMARY KEY (`player`,`trace`),
-  KEY `fk_rpt_trace` (`trace`),
-  CONSTRAINT `fk_rpt_player` FOREIGN KEY (`player`) REFERENCES `player` (`id`),
-  CONSTRAINT `fk_rpt_trace` FOREIGN KEY (`trace`) REFERENCES `traces` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -179,7 +178,7 @@ CREATE TABLE `rplayertraces` (
 
 LOCK TABLES `rplayertraces` WRITE;
 /*!40000 ALTER TABLE `rplayertraces` DISABLE KEYS */;
-INSERT INTO `rplayertraces` VALUES (1,1,0),(1,2,0);
+INSERT INTO `rplayertraces` VALUES (1,1,1,1),(1,2,1,2),(1,3,1,3);
 /*!40000 ALTER TABLE `rplayertraces` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -250,4 +249,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-11-30 17:10:51
+-- Dump completed on 2012-12-01  1:01:30

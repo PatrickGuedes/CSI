@@ -25,8 +25,8 @@
          <form action="" method="get">
       	
             <div class="height1x">
-				<input type="button" class="botao_azul" onclick="javascript:document.location.replace('casos.html')"  value="Processar Pistas"/>
-                <input type="button" class="botao_azul" onclick="javascript:document.location.replace('casos.html')"  value="Tomar Café"/>			
+				<input type="button" class="botao_azul" onclick="javascript:document.location.replace('/jogo/processTraces.action')"  value="Processar Pistas"/>
+                <input type="button" class="botao_azul" onclick="javascript:document.location.replace('/jogo/drinkCoffee.action')"  value="Tomar Café"/>			
 			</div>
            </form>
  

@@ -19,7 +19,7 @@
             
            
            
-              <div class="pistaslocal float-left"><a href="#"></a></div>
+              <div class="pistaslocal float-left"><a target="_blank" href="/jogo/foundTrace.action?traceId=3"></a></div>
               <div class="pistaslocal float-left"><a href="#"></a></div>
               <div class="pistaslocal float-left"><a href="#"></a></div> 
               <div class="pistaslocal float-left"><a href="#"></a></div>

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.projeto.service.PlayerService;
 
@@ -31,8 +32,8 @@ public class PlayerController {
 	}
 	
 	@RequestMapping("/jogo/openCase")
-	public String openCase() {
-		service.openCase();
+	public String openCase(@RequestParam(value="caseId", required=true) String caseId) {
+		service.openCase(Integer.parseInt(caseId));
 		return "redirect:/jogo/locations.action";
 	}
 	
@@ -57,5 +58,47 @@ public class PlayerController {
 		service.getLabTraces();
 		return "/jogo/lab.jsp";
 	}
+	
+	@RequestMapping("/jogo/drinkCoffee")
+	public @ResponseBody String drinkCoffee() {
+		if (service.drinkCoffee()) {
+			return "{ \"Success\": true }";
+		}
+		return "{ \"Success\": false }";
+	}
 
+	@RequestMapping("/jogo/foundTrace")
+	public @ResponseBody String foundTrace(@RequestParam(value="traceId", required=true) String traceId) {
+		
+		try {
+			if (service.foundTrace(Integer.parseInt(traceId))) {
+				return "{ \"Success\": true }";
+			}
+		} catch (Exception e) {
+			
+		}
+		
+		return "{ \"Success\": false }";
+	}
+
+	@RequestMapping("/jogo/processTraces")
+	public @ResponseBody String processTraces() {
+		
+		try {
+			if (service.processTraces()) {
+				String caseSolved;
+				
+				if (service.isCaseSolved()) {
+					caseSolved = "true";
+				} else {
+					caseSolved = "false";
+				}
+				
+				return "{ \"Success\": true, \"CaseSolved\": " + caseSolved + " }";
+			}
+		} catch (Exception e) {}
+		
+		return "{ \"Success\": false, \"CaseSolved\": false }";
+	}
+	
 }
