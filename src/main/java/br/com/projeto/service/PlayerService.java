@@ -10,11 +10,13 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import br.com.projeto.dao.LocationDao;
+import br.com.projeto.dao.PlayerCaseDao;
 import br.com.projeto.dao.PlayerDao;
 import br.com.projeto.dao.PlayerTraceDao;
 import br.com.projeto.entity.Case;
 import br.com.projeto.entity.Location;
 import br.com.projeto.entity.Player;
+import br.com.projeto.entity.PlayerCase;
 import br.com.projeto.entity.PlayerTrace;
 import br.com.projeto.entity.Trace;
 import br.com.projeto.util.CryptUtils;
@@ -28,6 +30,9 @@ public class PlayerService {
 	private LocationDao locationDao;	
 	@Autowired
 	private PlayerTraceDao playerTraceDao;	
+	@Autowired
+	private PlayerCaseDao playerCaseDao;	
+	
 	
 	public Player login(String username, String password) {
 		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
@@ -87,15 +92,21 @@ public class PlayerService {
 		return (player.getCaseOpen() != null);
 	}
 	
-	public void openCase() {
+	public void openCase(Integer caseId) {
 		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
 		HttpSession session = attr.getRequest().getSession(true);
 
 		Player player = (Player) session.getAttribute("Player");
 		
 		if (player == null) return;
-		
-		player.setCaseOpen(Integer.parseInt(attr.getRequest().getParameter("caseId")));
+
+		PlayerCase pc = new PlayerCase();
+		pc.setPlayerId(player.getId());
+		pc.setCaseId(caseId);
+		pc.setSolved(false);
+		playerCaseDao.insert(pc);
+
+		player.setCaseOpen(caseId);
 		
 		dao.update(player);
 	}
@@ -227,6 +238,16 @@ public class PlayerService {
 		
 		if (player == null) return false;
 		
-		return dao.isCaseSolved(player.getId(), player.getCaseOpen());
+		// se o caso foi resolvido, vamos atualizar os dados do usuario
+		if (dao.isCaseSolved(player, player.getCaseOpen())){
+
+			playerCaseDao.setSolved(player.getId(), player.getCaseOpen());
+			
+			player.setCaseOpen(null);
+			dao.update(player);
+			return true;
+		}
+		
+		return false;
 	}
 }

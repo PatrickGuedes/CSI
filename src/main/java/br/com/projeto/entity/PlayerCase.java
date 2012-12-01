@@ -2,6 +2,8 @@ package br.com.projeto.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -10,10 +12,14 @@ import javax.persistence.Table;
 public class PlayerCase {
 
 	@Id
-	@Column(name = "player")
+	@Column(name = "id")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	Integer id;
+	
+	@Column(name = "playerId")
 	private Integer playerId;
 	
-	@Column(name = "case")
+	@Column(name = "caseId")
 	private Integer caseId;
 	
 	@Column(name = "solved")

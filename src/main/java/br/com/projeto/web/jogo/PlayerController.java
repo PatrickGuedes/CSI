@@ -32,8 +32,8 @@ public class PlayerController {
 	}
 	
 	@RequestMapping("/jogo/openCase")
-	public String openCase() {
-		service.openCase();
+	public String openCase(@RequestParam(value="caseId", required=true) String caseId) {
+		service.openCase(Integer.parseInt(caseId));
 		return "redirect:/jogo/locations.action";
 	}
 	
@@ -96,9 +96,7 @@ public class PlayerController {
 				
 				return "{ \"Success\": true, \"CaseSolved\": " + caseSolved + " }";
 			}
-		} catch (Exception e) {
-			
-		}
+		} catch (Exception e) {}
 		
 		return "{ \"Success\": false, \"CaseSolved\": false }";
 	}

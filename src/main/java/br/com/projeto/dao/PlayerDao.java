@@ -31,7 +31,7 @@ public class PlayerDao {
 		this.em = em;
 	}
 
-	@Transactional(readOnly=true)
+	@Transactional
 	public Player findById(int id) {
 		return (Player) em.find(Player.class, id);
 	}
@@ -131,7 +131,8 @@ public class PlayerDao {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public boolean isCaseSolved(Integer playerId, Integer caseId) {
+	@Transactional
+	public boolean isCaseSolved(Player player, Integer caseId) {
 		List<Integer> allTraces;
 		
 		Query query = em.createQuery("select t.id from Trace t where t.caseId = :caseId");
@@ -139,11 +140,9 @@ public class PlayerDao {
 		
 		allTraces = query.getResultList();
 		
-		System.out.println("Quantidade de pistas: " + allTraces.size());
-		
 		for (Integer traceId : allTraces) {
 			Query query2 = em.createQuery("select count(pt) from PlayerTrace pt where pt.playerId = :playerId and pt.processed = :processed and pt.traceId = :traceId");
-			query2.setParameter("playerId", playerId);
+			query2.setParameter("playerId", player.getId());
 			query2.setParameter("processed", true);
 			query2.setParameter("traceId", traceId);
 			
