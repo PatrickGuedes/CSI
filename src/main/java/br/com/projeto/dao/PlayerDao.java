@@ -90,7 +90,7 @@ public class PlayerDao {
 		Query query = em.createQuery("from PlayerTrace pt where pt.playerId = :playerId and pt.processed = :processed");
 		query.setParameter("playerId", playerId);
 		query.setParameter("processed", false);
-
+		
 		traces = query.getResultList();
 		
 		for (PlayerTrace pTrace : traces) {
@@ -128,6 +128,34 @@ public class PlayerDao {
 		}
 		
 		return locationTraces;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public boolean isCaseSolved(Integer playerId, Integer caseId) {
+		List<Integer> allTraces;
+		
+		Query query = em.createQuery("select t.id from Trace t where t.caseId = :caseId");
+		query.setParameter("caseId", caseId);
+		
+		allTraces = query.getResultList();
+		
+		System.out.println("Quantidade de pistas: " + allTraces.size());
+		
+		for (Integer traceId : allTraces) {
+			Query query2 = em.createQuery("select count(pt) from PlayerTrace pt where pt.playerId = :playerId and pt.processed = :processed and pt.traceId = :traceId");
+			query2.setParameter("playerId", playerId);
+			query2.setParameter("processed", true);
+			query2.setParameter("traceId", traceId);
+			
+			Number result = (Number) query2.getSingleResult();
+			
+			// nao achou a pista ainda
+			if (result.intValue() == 0) {
+				return false;
+			}
+		}
+		
+		return true;
 	}
 
 }

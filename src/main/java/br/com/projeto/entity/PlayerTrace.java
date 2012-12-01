@@ -2,18 +2,22 @@ package br.com.projeto.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "rplayertraces")
 public class PlayerTrace {
-
+	
 	@Id
-	@Column(name = "player")
+	@GeneratedValue
+	long id;
+	
+	@Column(name = "playerId")
 	private Integer playerId;
 	
-	@Column(name = "trace")
+	@Column(name = "traceId")
 	private Integer traceId;
 	
 	@Column(name = "processed")

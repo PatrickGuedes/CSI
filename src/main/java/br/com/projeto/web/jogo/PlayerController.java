@@ -67,4 +67,40 @@ public class PlayerController {
 		return "{ \"Success\": false }";
 	}
 
+	@RequestMapping("/jogo/foundTrace")
+	public @ResponseBody String foundTrace(@RequestParam(value="traceId", required=true) String traceId) {
+		
+		try {
+			if (service.foundTrace(Integer.parseInt(traceId))) {
+				return "{ \"Success\": true }";
+			}
+		} catch (Exception e) {
+			
+		}
+		
+		return "{ \"Success\": false }";
+	}
+
+	@RequestMapping("/jogo/processTraces")
+	public @ResponseBody String processTraces() {
+		
+		try {
+			if (service.processTraces()) {
+				String caseSolved;
+				
+				if (service.isCaseSolved()) {
+					caseSolved = "true";
+				} else {
+					caseSolved = "false";
+				}
+				
+				return "{ \"Success\": true, \"CaseSolved\": " + caseSolved + " }";
+			}
+		} catch (Exception e) {
+			
+		}
+		
+		return "{ \"Success\": false, \"CaseSolved\": false }";
+	}
+	
 }

@@ -11,9 +11,12 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import br.com.projeto.dao.LocationDao;
 import br.com.projeto.dao.PlayerDao;
+import br.com.projeto.dao.PlayerTraceDao;
 import br.com.projeto.entity.Case;
 import br.com.projeto.entity.Location;
 import br.com.projeto.entity.Player;
+import br.com.projeto.entity.PlayerTrace;
+import br.com.projeto.entity.Trace;
 import br.com.projeto.util.CryptUtils;
 
 @Service
@@ -23,6 +26,8 @@ public class PlayerService {
 	private PlayerDao dao;
 	@Autowired
 	private LocationDao locationDao;	
+	@Autowired
+	private PlayerTraceDao playerTraceDao;	
 	
 	public Player login(String username, String password) {
 		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
@@ -174,5 +179,54 @@ public class PlayerService {
 		dao.update(player);
 
 		return true;
+	}
+	
+	public boolean foundTrace(Integer traceId) {
+		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		HttpSession session = attr.getRequest().getSession(true);
+
+		Player player = (Player) session.getAttribute("Player");
+		
+		if (player == null) return false;
+		
+		PlayerTrace playerTrace = new PlayerTrace();
+		playerTrace.setPlayerId(player.getId());
+		playerTrace.setTraceId(traceId);
+		playerTrace.setProcessed(false);
+		
+		playerTraceDao.insert(playerTrace);
+		
+		return true;
+	}
+
+	public boolean processTraces() {
+		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		HttpSession session = attr.getRequest().getSession(true);
+
+		Player player = (Player) session.getAttribute("Player");
+		
+		if (player == null) return false;
+		
+		List<Trace> traces = dao.getTracesToProcess(player.getId());
+		
+		for (Trace t : traces) {
+			playerTraceDao.setProcessed(player.getId(), t.getId());
+			player.setXp( player.getXp() + t.getXp() );
+		}
+		
+		dao.update(player);
+		
+		return true;
+	}
+
+	public boolean isCaseSolved() {
+		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		HttpSession session = attr.getRequest().getSession(true);
+
+		Player player = (Player) session.getAttribute("Player");
+		
+		if (player == null) return false;
+		
+		return dao.isCaseSolved(player.getId(), player.getCaseOpen());
 	}
 }
