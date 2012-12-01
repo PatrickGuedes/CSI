@@ -49,7 +49,7 @@
   </filter>
   <filter-mapping>
     <filter-name>JogoLoginFilter</filter-name>
-    <url-pattern>/jogoDisabled/*</url-pattern>
+    <url-pattern>/jogo/*</url-pattern>
   </filter-mapping>
   <resource-ref>
     <description>Datasource</description>

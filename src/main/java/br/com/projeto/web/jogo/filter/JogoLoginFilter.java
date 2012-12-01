@@ -14,14 +14,11 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang.StringUtils;
 
-import br.com.projeto.util.Constants;
-
-
 
 public class JogoLoginFilter implements Filter {
 	
 	private static String LOGIN_URI = "/jogo/login.jsp";
-	private static String LOGGED_IN_URI = "/jogo";
+	private static String LOGGED_IN_URI = "/jogo/cases.action";
 	private static String[] AUTHORIZED_URIS = new String[] {
 		LOGIN_URI,
 		"/jogo/login.action",
@@ -35,8 +32,8 @@ public class JogoLoginFilter implements Filter {
 		HttpServletRequest request = (HttpServletRequest) req;
 		HttpServletResponse response = (HttpServletResponse) res;
 		HttpSession session = request.getSession(true);
-		
-		if(session.getAttribute(Constants.USER_ADMIN) == null) {
+
+		if(session.getAttribute("Player") == null) {
 			
 			boolean authorized = false;
 			
