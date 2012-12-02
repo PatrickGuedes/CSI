@@ -1,0 +1,29 @@
+Antes de rodar o projeto
+========================
+1. Verificar se a configuração de senhas do banco de dados está correta.
+
+2. Subir os dados inciais da aplicação, subindo o dump da base que se encontra em Projeto/dist/database.sql.
+
+
+Rodando o projeto
+=================
+1. Executar na raíz do projeto o comando: mvn install jetty:run-war
+
+
+Jogando
+=======
+1. Acessar a url: http://127.0.0.1:30016/
+
+2. Cadastrar um jogador.
+
+3. Logar com o usuário e senha cadastrados.
+
+4. Escolha um caso, visite os locais em busca de pistas. Enquanto não terminar um caso, não pode escolher outro.
+
+5. Para visitar os locais é necessário ter energia. Para recuperar a energia, vá até o laboratório e beba café.
+
+6. Após encontrar as pistas é necessário ir até o laboratório e processá-las.
+
+7. Após processar todas as pistas, o caso estará resolvido.
+
+8. Escolha um novo caso.
