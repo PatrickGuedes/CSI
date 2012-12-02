@@ -4,11 +4,17 @@
 <head>
 	<%@ include file="/adm/inc/taghead.jsp" %>
 </head>
+<%
+Map<String, Object> model = (Map<String,Object>) request.getAttribute("model");
+
+String flashMessage = (String) model.get("FlashMessage");
+%>
+
 <body>
     <div id="container">
 		<%@ include file="/adm/inc/header.jsp" %>
     </div>
-    <h2>Usuários</h2>
+    <h2>Usuários - ${flashMessage} - <%= flashMessage %></h2>
 			
 			<c:forEach items="${Users}" var="usu">
 				<div class='locais'> 

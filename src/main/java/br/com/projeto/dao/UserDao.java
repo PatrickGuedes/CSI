@@ -2,25 +2,13 @@ package br.com.projeto.dao;
 
 import java.util.List;
 
-import java.util.ArrayList;
-
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
-
-import org.springframework.stereotype.Repository;
-
-import br.com.projeto.entity.Trace;
 import br.com.projeto.entity.User;
 
 @Repository
@@ -47,11 +35,14 @@ public class UserDao  {
 	
 	@SuppressWarnings("unchecked")
 	@Transactional(readOnly=true)
-	public List<User> usuarios() {
+	public List<User> allUsers() {
 		Query query = em.createQuery("from User u");
-		
-		List<User> usuarios = query.getResultList();
-		return usuarios;
+		return query.getResultList();
+	}
+	
+	@Transactional(readOnly=true)
+	public User findById(Long userId) {
+		return (User) em.find(User.class, userId);
 	}
 
 }
