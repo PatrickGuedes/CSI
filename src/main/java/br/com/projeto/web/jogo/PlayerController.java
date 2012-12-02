@@ -69,6 +69,11 @@ public class PlayerController {
 	public @ResponseBody String foundTrace(@RequestParam(value="traceId", required=true) String traceId) {
 		
 		try {
+			// essa pista ja foi encontrada
+			if (service.hasTrace(Integer.parseInt(traceId))) {
+				return "A";
+			}
+			
 			if (service.foundTrace(Integer.parseInt(traceId))) {
 				return "P";
 			}

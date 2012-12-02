@@ -203,6 +203,17 @@ public class PlayerService {
 		return true;
 	}
 	
+	public boolean hasTrace(Integer traceId) {
+		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		HttpSession session = attr.getRequest().getSession(true);
+
+		Player player = (Player) session.getAttribute("Player");
+		
+		if (player == null) return false;
+		
+		return playerTraceDao.hasTrace(player.getId(), traceId);
+	}
+	
 	public boolean foundTrace(Integer traceId) {
 		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
 		HttpSession session = attr.getRequest().getSession(true);
