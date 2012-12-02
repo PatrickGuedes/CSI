@@ -62,9 +62,9 @@ public class PlayerController {
 	@RequestMapping("/jogo/drinkCoffee")
 	public @ResponseBody String drinkCoffee() {
 		if (service.drinkCoffee()) {
-			return "{ \"Success\": true }";
+			return "E";
 		}
-		return "{ \"Success\": false }";
+		return "W";
 	}
 
 	@RequestMapping("/jogo/foundTrace")
@@ -72,13 +72,13 @@ public class PlayerController {
 		
 		try {
 			if (service.foundTrace(Integer.parseInt(traceId))) {
-				return "{ \"Success\": true }";
+				return "P";
 			}
 		} catch (Exception e) {
 			
 		}
 		
-		return "{ \"Success\": false }";
+		return "N";
 	}
 
 	@RequestMapping("/jogo/processTraces")
@@ -89,16 +89,17 @@ public class PlayerController {
 				String caseSolved;
 				
 				if (service.isCaseSolved()) {
-					caseSolved = "true";
+					//caseSolved = "true";
+					return "R";
 				} else {
-					caseSolved = "false";
+					//caseSolved = "false";
+					return "F";
 				}
 				
-				return "{ \"Success\": true, \"CaseSolved\": " + caseSolved + " }";
 			}
 		} catch (Exception e) {}
 		
-		return "{ \"Success\": false, \"CaseSolved\": false }";
+		return "E";
 	}
 	
 }
