@@ -174,7 +174,8 @@ public class PlayerService {
 		//List<Integer> lista = Arrays.asList(1,2,3,4,5,6);
 		Collections.shuffle(tr, new Random());
 		session.setAttribute("Traces", tr);
-		//session.setAttribute("Traces", lista );
+		
+		session.setAttribute("Location", locationObj );
 		return true;
 	}
 

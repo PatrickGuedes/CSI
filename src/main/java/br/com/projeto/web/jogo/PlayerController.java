@@ -46,9 +46,10 @@ public class PlayerController {
 	@RequestMapping("/jogo/traces")
 	public String traces(@RequestParam(value="locationId", required=true) String locationId) {
 		
-		if (service.getTraces(Integer.parseInt(locationId)) == false) {
-			return "/jogo/locations.action";
-		}
+		service.getTraces(Integer.parseInt(locationId));
+//		if (service.getTraces(Integer.parseInt(locationId)) == false) {
+//			return "/jogo/locations.action";
+//		}
 		
 		return "/jogo/traces.jsp";
 	}

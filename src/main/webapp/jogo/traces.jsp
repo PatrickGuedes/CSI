@@ -7,6 +7,13 @@
 
 <body>
 
+<c:if test='${NoEnergy == true}'>
+<script>
+alert('Você está cançado para visitar esse local!');
+document.location.replace('/jogo/locations.action');
+</script>
+</c:if>
+
 <div class="container">
 
 	<%@ include file="/jogo/inc/playerHeader.jsp" %>
@@ -14,7 +21,7 @@
 <!-- ##################################CONTEÚDO################################### -->				
 		<div class="divconteudo float-left">
         	<h2>Pistas<h2>
-			<h4> Laboratório de Informática <h4>
+			<h4>${Location.getName() }<h4>
 			<c:set var="i" value="0" />
             <c:forEach items="${Traces}" var="pista">
 				<div class="pistaslocal float-left">

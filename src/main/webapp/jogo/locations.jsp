@@ -7,19 +7,7 @@
 
 
 <body>
-<% 
 
-if(session.getAttribute("NoEnergy") != null){
-	 
-
-
-%>
-	
-	<script>alert("Voce está sem energia suficiente");</script>
-<% 
-	
-}	
-%>
 <div class="container">
 
 	<%@ include file="/jogo/inc/playerHeader.jsp" %>
