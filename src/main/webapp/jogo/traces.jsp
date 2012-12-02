@@ -15,20 +15,16 @@
 		<div class="divconteudo float-left">
         	<h2>Pistas<h2>
 			<h4> Laboratório de Informática <h4>
-	
-            
+			<c:set var="i" value="0" />
+            <c:forEach items="${Traces}" var="pista">
+				<div class="pistaslocal float-left">
+					
+             		<a target="_blank" class='buscaPista_${pista.id}' <c:if test='${pista.name==null}'>id="pista${i}"</c:if><c:if test='${pista.name!=null}'>id='${pista.name}'</c:if>></a>
+				</div>
+				<c:set var="i" value="${i+1}" />		
+			</c:forEach>
            
-           
-              <div class="pistaslocal float-left"><a target="_blank" href="/jogo/foundTrace.action?traceId=3"></a></div>
-              <div class="pistaslocal float-left"><a href="#"></a></div>
-              <div class="pistaslocal float-left"><a href="#"></a></div> 
-              <div class="pistaslocal float-left"><a href="#"></a></div>
-              <div class="pistaslocal float-left"><a href="#"></a></div>
-              <div class="pistaslocal float-left"><a href="#"></a></div> 				
-              <div class="pistaslocal float-left"><a href="#"> </a></div>
-              <div class="pistaslocal float-left"><a href="#"></a></div>
-              <div class="pistaslocal float-left"><a href="#"></a></div>  				
-        	
+           </div>
 	<div class= "clear"></div><!-- fix bug altura atomática-->
 
 	<%@ include file="/jogo/inc/playerFooter.jsp" %>
