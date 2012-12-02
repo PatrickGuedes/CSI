@@ -1,7 +1,10 @@
 package br.com.projeto.service;
 
-import java.util.List;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -161,8 +164,17 @@ public class PlayerService {
 		dao.update(player);
 
 		session.setAttribute("NoEnergy", false);
-		session.setAttribute("Traces", dao.getLocationTraces(player.getId(), locationId));
-		
+		List<Trace> tr = dao.getLocationTraces(player.getId(), locationId);
+		tr.add(null);
+		tr.add(null);
+		tr.add(null);
+		tr.add(null);
+		tr.add(null);
+		tr.add(null);
+		//List<Integer> lista = Arrays.asList(1,2,3,4,5,6);
+		Collections.shuffle(tr, new Random());
+		session.setAttribute("Traces", tr);
+		//session.setAttribute("Traces", lista );
 		return true;
 	}
 
