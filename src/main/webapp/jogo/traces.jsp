@@ -9,7 +9,7 @@
 
 <c:if test='${NoEnergy == true}'>
 <script>
-alert('Você está cançado para visitar esse local!');
+alert('Você está cansado para visitar esse local!');
 document.location.replace('/jogo/locations.action');
 </script>
 </c:if>

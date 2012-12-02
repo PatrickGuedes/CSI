@@ -165,13 +165,11 @@ public class PlayerService {
 
 		session.setAttribute("NoEnergy", false);
 		List<Trace> tr = dao.getLocationTraces(player.getId(), locationId);
-		tr.add(null);
-		tr.add(null);
-		tr.add(null);
-		tr.add(null);
-		tr.add(null);
-		tr.add(null);
-		//List<Integer> lista = Arrays.asList(1,2,3,4,5,6);
+		
+		for (int i = tr.size(); i <= 8; i++) {
+			tr.add(null);
+		}
+		
 		Collections.shuffle(tr, new Random());
 		session.setAttribute("Traces", tr);
 		
