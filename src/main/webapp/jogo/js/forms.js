@@ -124,12 +124,19 @@ nos locais... faz um link para "/jogo/traces.action?locationId=X"*/
 				success: function(r){ 
 					if(r=="R"){
 						alert("Caso Resolvido!");
+						window.location = '/jogo/cases.action';
 					}
 					if(r=="F"){
 						
 						alert("Pista Processada");
+						location.reload();
 					}
-					location.reload();
+					if(r=="E"){
+						alert("Pista NÃO FOI processada!");
+						//window.location = '/jogo/cases.action';
+						location.reload();
+					}
+					
 				    
 				},
 				error: function(){  
