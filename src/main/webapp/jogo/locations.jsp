@@ -9,13 +9,16 @@
 <body>
 <% 
 
-if(session.getAttribute("NoEnergy") != null){ 
+if(session.getAttribute("NoEnergy") != null){
+	 
+
 
 %>
 	
-	<script>alert("Voce está sem energia");</script>
+	<script>alert("Voce está sem energia suficiente");</script>
 <% 
-	} 
+	
+}	
 %>
 <div class="container">
 
@@ -24,6 +27,7 @@ if(session.getAttribute("NoEnergy") != null){
 <!-- ##################################CONTEÚDO################################### -->				
 		<div class="divconteudo float-left">
 			<h2>Locais</h2>
+			
 			<c:forEach items="${Locations}" var="locais">
 				<div class='locais'> 
              	<a href="/jogo/traces.action?locationId=${locais.id}">
