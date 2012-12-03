@@ -31,6 +31,7 @@ public class JogoLoginController {
 		if (player == null) {
 			return "redirect:/jogo/";
 		}
+		
 
 		return "redirect:/jogo/cases.action";
 	}
