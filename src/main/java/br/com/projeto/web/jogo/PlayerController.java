@@ -89,10 +89,10 @@ public class PlayerController {
 				String caseSolved;
 				
 				if (service.isCaseSolved()) {
-					//caseSolved = "true";
+					caseSolved = "true";
 					return "R";
 				} else {
-					//caseSolved = "false";
+					caseSolved = "false";
 					return "F";
 				}
 				
