@@ -22,6 +22,8 @@ public class JogoLoginFilter implements Filter {
 	private static String[] AUTHORIZED_URIS = new String[] {
 		LOGIN_URI,
 		"/jogo/login.action",
+		"/jogo/cadastro.jsp",
+		"/jogo/cadastrar.action",
 		"/jogo/css/",
 		"/jogo/img/",
 		"/jogo/js/"

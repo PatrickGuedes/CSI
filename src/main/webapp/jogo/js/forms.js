@@ -74,11 +74,15 @@ nos locais... faz um link para "/jogo/traces.action?locationId=X"*/
 					if(r=="P"){
 						alert("Pista Encontrada!: "+nome);
 						$(this).css("display","none");
-						location.reload();
+//						location.reload();
 					}
 					if(r=="N"){
 						
 						alert("Nenhuma pista encontrada");
+					}
+					if(r=="A"){
+						
+						alert("A pista ja foi encontrada");
 					}
 				    
 				    

@@ -36,4 +36,14 @@ public class PlayerTraceDao {
 		
 		em.merge(pt);
 	}
+	
+	public boolean hasTrace(Integer playerId, Integer traceId) {
+		Query query = em.createQuery("select count(pt) from PlayerTrace pt where pt.playerId = :playerId and pt.traceId = :traceId");
+		query.setParameter("playerId", playerId);
+		query.setParameter("traceId", traceId);
+		
+		Number result = (Number) query.getSingleResult();
+		
+		return (result.intValue() == 1);
+	}
 }

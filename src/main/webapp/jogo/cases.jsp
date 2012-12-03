@@ -17,7 +17,7 @@
 	
             
            <c:forEach items="${Cases}" var="item">
-           		<c:if test='${item.userDone==true}'>
+           		<c:if test='${item.userDone==false}'>
 				<div class="casos"> 
              	<a href="/jogo/openCase.action?caseId=${item.id}">
                	<h3>${item.subject}</h3>			

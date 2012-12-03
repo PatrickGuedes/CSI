@@ -15,7 +15,7 @@
 			<h2>Laboratório</h2>
 			<c:forEach items="${LabTraces}" var="lbpista">
 				<div class="pistas">
-					<h3>Pista 1 : <span class="verde">${lbpista.name}</span></h3>
+					<h3>Pista: <span class="verde">${lbpista.name}</span></h3>
              		
 				</div>
 						

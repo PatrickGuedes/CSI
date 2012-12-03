@@ -165,16 +165,15 @@ public class PlayerService {
 
 		session.setAttribute("NoEnergy", false);
 		List<Trace> tr = dao.getLocationTraces(player.getId(), locationId);
-		tr.add(null);
-		tr.add(null);
-		tr.add(null);
-		tr.add(null);
-		tr.add(null);
-		tr.add(null);
-		//List<Integer> lista = Arrays.asList(1,2,3,4,5,6);
+		
+		for (int i = tr.size(); i <= 8; i++) {
+			tr.add(null);
+		}
+		
 		Collections.shuffle(tr, new Random());
 		session.setAttribute("Traces", tr);
-		//session.setAttribute("Traces", lista );
+		
+		session.setAttribute("Location", locationObj );
 		return true;
 	}
 
@@ -202,6 +201,17 @@ public class PlayerService {
 		dao.update(player);
 
 		return true;
+	}
+	
+	public boolean hasTrace(Integer traceId) {
+		ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		HttpSession session = attr.getRequest().getSession(true);
+
+		Player player = (Player) session.getAttribute("Player");
+		
+		if (player == null) return false;
+		
+		return playerTraceDao.hasTrace(player.getId(), traceId);
 	}
 	
 	public boolean foundTrace(Integer traceId) {

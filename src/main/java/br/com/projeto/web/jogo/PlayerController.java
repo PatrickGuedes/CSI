@@ -46,9 +46,7 @@ public class PlayerController {
 	@RequestMapping("/jogo/traces")
 	public String traces(@RequestParam(value="locationId", required=true) String locationId) {
 		
-		if (service.getTraces(Integer.parseInt(locationId)) == false) {
-			return "/jogo/locations.action";
-		}
+		service.getTraces(Integer.parseInt(locationId));
 		
 		return "/jogo/traces.jsp";
 	}
@@ -71,6 +69,11 @@ public class PlayerController {
 	public @ResponseBody String foundTrace(@RequestParam(value="traceId", required=true) String traceId) {
 		
 		try {
+			// essa pista ja foi encontrada
+			if (service.hasTrace(Integer.parseInt(traceId))) {
+				return "A";
+			}
+			
 			if (service.foundTrace(Integer.parseInt(traceId))) {
 				return "P";
 			}
