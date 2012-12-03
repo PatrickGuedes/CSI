@@ -13,20 +13,20 @@
 			
 		<div class="divconteudo float-left">
 			<h2>Laboratório</h2>
-	
+			<c:forEach items="${LabTraces}" var="lbpista">
+				<div class="pistas">
+					<h3>Pista 1 : <span class="verde">${lbpista.name}</span></h3>
+             		
+				</div>
+						
+			</c:forEach>
             
-           <div class="pistas"> 
- 
-                	<h3>Pista 1 : <span class="verde">Pen Drive</span></h3>			
-     
-
-             </div>
-            
+                       
          <form action="" method="get">
       	
             <div class="height1x">
-				<input type="button" class="botao_azul" onclick="javascript:document.location.replace('/jogo/processTraces.action')"  value="Processar Pistas"/>
-                <input type="button" class="botao_azul" onclick="javascript:document.location.replace('/jogo/drinkCoffee.action')"  value="Tomar Café"/>			
+				<input type="button" class="botao_azul" name="btProcessar"  value="Processar Pistas"/>
+                <input type="button" class="botao_azul" name="btCafe"  value="Tomar Café"/>			
 			</div>
            </form>
  
